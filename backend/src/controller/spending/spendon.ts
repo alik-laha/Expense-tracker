@@ -4,9 +4,10 @@ import { v4 as uuidv4 } from "uuid";
 
 export const createSpendon = async (req: Request, res: Response) => {
     const { name } = req.body;
+    const userid = req.params.id;
     const id = uuidv4();
     try {
-        const spendon = await Spendon.create({ id, spendOn: name });
+        const spendon = await Spendon.create({ id, spendOn: name, userid });
         if (!spendon) return res.status(400).json({ error: 'Spendon not created' })
         return res.status(201).json({ spendon });
     }

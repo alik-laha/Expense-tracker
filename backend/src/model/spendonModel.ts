@@ -3,13 +3,13 @@ import sequelize from "../config/databaseConfig.js";
 import User from "./userModel.js";
 
 
-sequelize.sync()
-    .then(() => {
-        console.log('All models were synchronized successfully.');
-    })
-    .catch((error) => {
-        console.error('Error synchronizing models:', error);
-    });
+// sequelize.sync()
+//     .then(() => {
+//         console.log('All models were synchronized successfully.');
+//     })
+//     .catch((error) => {
+//         console.error('Error synchronizing models:', error);
+//     });
 
 const SPEND = sequelize.define('SpendOn', {
     id: {
@@ -20,6 +20,14 @@ const SPEND = sequelize.define('SpendOn', {
         type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true
+    },
+    userid: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+            model: User,
+            key: 'userid'
+        }
     }
 });
 
