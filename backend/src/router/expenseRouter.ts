@@ -7,43 +7,43 @@ import { createEarningFrom, deleteEarningFrom, getEarningFrom } from "../control
 import { CreateInvestment, GetInvestments, UpdateInvestment, DeleteInvestment } from "../controller/investment/investment.js";
 import { CreateInvestIn, GetInvestIn, DeleteInvestIn } from "../controller/investment/investmentIn.js";
 import { CreateGoal, DeleteGoal, GetGoals } from "../controller/investment/goal.js";
-
+import { verifyToken } from "../middleware/verification.js";
 //Spendings
-router.post("/create/:id", CreateSpending);
-router.get("/getallspending/:userid", GetSpending)
-router.put("/updatespending/:id", UpdateSpending);
-router.delete("/deletespending/:id", DeleteSpending)
+router.post("/create/:id", verifyToken, CreateSpending);
+router.get("/getallspending/:userid", verifyToken, GetSpending)
+router.put("/updatespending/:id", verifyToken, UpdateSpending);
+router.delete("/deletespending/:id", verifyToken, DeleteSpending)
 
 //SpendOn
-router.post("/spendon", createSpendon);
-router.delete("/deletespendon/:id", DeleteSpendon);
-router.get("/getallspendon/:userid", GetAllSpendon);
+router.post("/spendon/:userid", verifyToken, createSpendon);
+router.delete("/deletespendon/:id", verifyToken, DeleteSpendon);
+router.get("/getallspendon/:userid", verifyToken, GetAllSpendon);
 
 //Earnings
-router.post("/create/:id", CreateEarning);
-router.get("/getallspending/:userid", GetEarnings)
-router.put("/updatespending/:id", UpdateEarning);
-router.delete("/deletespending/:id", DeleteEarning)
+router.post("/create/:id", verifyToken, CreateEarning);
+router.get("/getallspending/:userid", verifyToken, GetEarnings)
+router.put("/updatespending/:id", verifyToken, UpdateEarning);
+router.delete("/deletespending/:id", verifyToken, DeleteEarning)
 
 //Earning From
-router.post("/createearningfrom/:id", createEarningFrom);
-router.get("/getearningfrom/:userid", getEarningFrom);
-router.delete("/deleteearningfrom/:id", deleteEarningFrom);
+router.post("/createearningfrom/:id", verifyToken, createEarningFrom);
+router.get("/getearningfrom/:userid", verifyToken, getEarningFrom);
+router.delete("/deleteearningfrom/:id", verifyToken, deleteEarningFrom);
 
 //Investment
-router.post("/createinvestment/:id", CreateInvestment);
-router.get("/getallinvestment/:userid", GetInvestments);
-router.put("/updateinvestment/:id", UpdateInvestment);
-router.delete("/deleteinvestment/:id", DeleteInvestment);
+router.post("/createinvestment/:id", verifyToken, CreateInvestment);
+router.get("/getallinvestment/:userid", verifyToken, GetInvestments);
+router.put("/updateinvestment/:id", verifyToken, UpdateInvestment);
+router.delete("/deleteinvestment/:id", verifyToken, DeleteInvestment);
 
 //Investment In
-router.post("/createinvestmentin/:id", CreateInvestIn);
-router.get("/getinvestmentin/:userid", GetInvestIn);
-router.delete("/deleteinvestmentin/:id", DeleteInvestIn);
+router.post("/createinvestmentin/:id", verifyToken, CreateInvestIn);
+router.get("/getinvestmentin/:userid", verifyToken, GetInvestIn);
+router.delete("/deleteinvestmentin/:id", verifyToken, DeleteInvestIn);
 
 //Goal Setting
-router.post("/creategoal/:id", CreateGoal);
-router.get("/getallgoal/:userid", GetGoals);
-router.delete("/deletegoal/:id", DeleteGoal);
+router.post("/creategoal/:id", verifyToken, CreateGoal);
+router.get("/getallgoal/:userid", verifyToken, GetGoals);
+router.delete("/deletegoal/:id", verifyToken, DeleteGoal);
 
 export default router;

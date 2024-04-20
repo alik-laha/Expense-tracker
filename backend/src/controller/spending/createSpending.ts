@@ -4,12 +4,12 @@ import { v4 as uuidv4 } from "uuid";
 
 //Create Spending
 export const CreateSpending = async (req: Request, res: Response) => {
-    const { amount, date, spendOn } = req.body;
+    const { amount, spendOn } = req.body;
     const userid = req.params.id;
     const id = uuidv4();
 
     try {
-        const spending = await Spending.create({ id, amount, date, spendOn, userid });
+        const spending = await Spending.create({ id, amount, spendOn, userid });
         if (!spending) return res.status(400).json({ error: 'Spending not created' })
         return res.status(201).json({ spending });
     }
@@ -65,6 +65,7 @@ export const UpdateSpending = async (req: Request, res: Response) => {
 //Delete Spending
 export const DeleteSpending = async (req: Request, res: Response) => {
     const id = req.params.id;
+    console.log(id)
     try {
         const spending = await Spending.destroy({ where: { id } });
         if (!spending) return res.status(400).json({ error: 'Spending not deleted' })

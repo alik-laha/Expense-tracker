@@ -4,9 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 
 export const createSpendon = async (req: Request, res: Response) => {
     const { name } = req.body;
-    const userid = req.params.id;
+    const userid = req.params.userid;
     const id = uuidv4();
     try {
+        const oldSpendon = await Spendon.findOne({ where: { spendOn: name, userid } });
+        if (oldSpendon) return res.status(400).json({ error: 'Spendon already exists' });
         const spendon = await Spendon.create({ id, spendOn: name, userid });
         if (!spendon) return res.status(400).json({ error: 'Spendon not created' })
         return res.status(201).json({ spendon });
