@@ -24,6 +24,7 @@ const SPEND = sequelize.define('SpendOn', {
     userid: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
         references: {
             model: User,
             key: 'userid'
