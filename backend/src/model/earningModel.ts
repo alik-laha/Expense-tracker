@@ -12,10 +12,6 @@ const Earning = sequelize.define('Earning', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    date: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
     source: {
         type: DataTypes.STRING,
         allowNull: false,

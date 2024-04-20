@@ -1,34 +1,25 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/databaseConfig.js";
 import User from "./userModel.js";
-import SPEND from "./spendonModel.js";
 
 
-const Spending = sequelize.define('Spending', {
+const InvestIn = sequelize.define('InvestIn', {
     id: {
         type: DataTypes.STRING,
-        primaryKey: true
     },
-    amount: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    spendOn: {
+    company: {
         type: DataTypes.STRING,
         allowNull: false,
-        references: {
-            model: SPEND,
-            key: 'spendOn'
-        }
+        primaryKey: true
     },
     userid: {
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: true,
         references: {
             model: User,
             key: 'userid'
         }
     }
 });
-
-export default Spending;
+export default InvestIn;

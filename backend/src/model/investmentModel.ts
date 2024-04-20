@@ -1,25 +1,26 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/databaseConfig.js";
 import User from "./userModel.js";
-import SPEND from "./spendonModel.js";
+import Goal from "./goalModel.js";
+import InvestIn from "./investInModel.js";
 
-
-const Spending = sequelize.define('Spending', {
+const Investment = sequelize.define('Investment', {
     id: {
         type: DataTypes.STRING,
         primaryKey: true
     },
-    amount: {
+    capital: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    spendOn: {
+    company: {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: SPEND,
-            key: 'spendOn'
+            model: InvestIn,
+            key: 'company'
         }
+
     },
     userid: {
         type: DataTypes.STRING,
@@ -28,7 +29,14 @@ const Spending = sequelize.define('Spending', {
             model: User,
             key: 'userid'
         }
+    },
+    Goal: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+            model: Goal,
+            key: 'goal'
+        }
     }
 });
-
-export default Spending;
+export default Investment;
