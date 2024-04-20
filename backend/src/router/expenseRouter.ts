@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { CreateSpending, GetSpending, UpdateSpending, DeleteSpending } from "../controller/spending/createSpending.js";
+import { CreateSpending, GetSpending, UpdateSpending, DeleteSpending } from "../controller/spending/Spending.js";
 import { createSpendon, DeleteSpendon, GetAllSpendon } from "../controller/spending/spendon.js";
 import { CreateEarning, DeleteEarning, GetEarnings, UpdateEarning } from "../controller/earning/earning.js";
 import { createEarningFrom, deleteEarningFrom, getEarningFrom } from "../controller/earning/earningFrom.js";
@@ -9,7 +9,7 @@ import { CreateInvestIn, GetInvestIn, DeleteInvestIn } from "../controller/inves
 import { CreateGoal, DeleteGoal, GetGoals } from "../controller/investment/goal.js";
 import { verifyToken } from "../middleware/verification.js";
 //Spendings
-router.post("/create/:id", verifyToken, CreateSpending);
+router.post("/spending/:id", verifyToken, CreateSpending);
 router.get("/getallspending/:userid", verifyToken, GetSpending)
 router.put("/updatespending/:id", verifyToken, UpdateSpending);
 router.delete("/deletespending/:id", verifyToken, DeleteSpending)

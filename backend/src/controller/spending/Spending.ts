@@ -45,10 +45,7 @@ export const UpdateSpending = async (req: Request, res: Response) => {
         if (spendOn) {
             data.push(await Spending.update({ spendOn }, { where: { id } }));
         }
-        else {
-            return res.status(400).json({ error: 'Please provide amount or spendOn' });
-        }
-        if (data.length == 2) {
+        if (data.length > 0) {
             return res.status(200).json({ message: 'Spending updated successfully' });
         }
         else {
