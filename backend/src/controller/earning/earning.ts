@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 
 //Create a new earning
 export const CreateEarning = async (req: Request, res: Response) => {
-    const { amount, date, source } = req.body;
-    const userid = req.params.id;
+    const { amount, source } = req.body;
+    const userid = req.params.userid;
     const id = uuidv4();
     try {
-        const earning = await Earning.create({ id, amount, date, source, userid });
+        const earning = await Earning.create({ id, amount, source, userid });
         if (!earning) return res.status(400).json({ error: 'Earning not created' })
         return res.status(201).json({ earning });
     }
@@ -44,10 +44,7 @@ export const UpdateEarning = async (req: Request, res: Response) => {
         if (source) {
             data.push(await Earning.update({ source }, { where: { id } }));
         }
-        else {
-            return res.status(400).json({ error: 'Please provide amount or source' });
-        }
-        if (data.length == 2) {
+        if (data.length > 0) {
             return res.status(200).json({ message: 'Earning updated successfully' });
         }
         else {
@@ -65,7 +62,7 @@ export const DeleteEarning = async (req: Request, res: Response) => {
     try {
         const earning = await Earning.destroy({ where: { id: req.params.id } });
         if (!earning) return res.status(404).json({ error: 'Earning not found' });
-        return res.status(204).json({ earning });
+        return res.status(200).json({ msg: 'Earning deleted successfully' });
     }
     catch (err) {
         console.error(err);

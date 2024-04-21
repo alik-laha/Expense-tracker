@@ -7,7 +7,7 @@ export const createEarningFrom = async (req: Request, res: Response) => {
     try {
         const id = uuidv4();
         const { source } = req.body;
-        const userid = req.params.id;
+        const userid = req.params.userid;
         const earningFrom = await EarningFrom.create({ id, source, userid });
         if (!earningFrom) return res.status(400).json({ error: 'EarningFrom not created' });
         res.status(201).json({ earningFrom });
