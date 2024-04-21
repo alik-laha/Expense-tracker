@@ -1,7 +1,19 @@
 import { useNavigate, NavLink } from "react-router-dom"
+import { FormEvent, useState } from "react";
 
 const Signup = () => {
+    const Navigater = useNavigate();
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+    const [name, setName] = useState('');
+    const [confirmPass, setConfirmPass] = useState('');
 
+
+    const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(email, pass, name, confirmPass)
+        Navigater('/')
+    }
     return (
         <div className="alik">
             <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
@@ -12,25 +24,25 @@ const Signup = () => {
 
                         <h2>Signup</h2>
 
-                        <div className="form">
+                        <form className="form" onSubmit={handleSignUp}>
                             <div className="inputBox">
 
-                                <input type="text" required /><i>User Name</i>
+                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required /><i>User Name</i>
 
                             </div>
 
                             <div className="inputBox">
 
-                                <input type="email" required /><i>Email</i>
+                                <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} /><i>Email</i>
 
                             </div>
 
                             <div className="inputBox">
-                                <input type="password" required /> <i>Password</i>
+                                <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} required /> <i>Password</i>
 
                             </div>
                             <div className="inputBox">
-                                <input type="password" required /> <i>Confirm Password</i>
+                                <input type="password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} required /> <i>Confirm Password</i>
 
                             </div>
 
@@ -44,7 +56,7 @@ const Signup = () => {
 
                             </div>
 
-                        </div>
+                        </form>
 
                     </div>
 
