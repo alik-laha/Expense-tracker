@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 //Create a new goal
 export const CreateGoal = async (req: Request, res: Response) => {
     const { goal, amount } = req.body;
-    const userid = req.params.id;
+    const userid = req.params.userid;
     const id = uuidv4();
     try {
         const goals = await Goal.create({ id, goal, amount, userid });
@@ -37,7 +37,7 @@ export const DeleteGoal = async (req: Request, res: Response) => {
     try {
         const goal = await Goal.destroy({ where: { id: req.params.id } });
         if (!goal) return res.status(404).json({ error: 'Goal not found' });
-        res.status(204).json({ goal });
+        res.status(200).json({ msg: 'Goal deleted successfully' });
     } catch (error) {
         res.status(500).json({ message: error });
     }

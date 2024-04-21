@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 //Create a new investment
 export const CreateInvestment = async (req: Request, res: Response) => {
-    const { company, capital } = req.body;
-    const userid = req.params.id;
+    const { company, capital, goal } = req.body;
+    const userid = req.params.userid;
     const id = uuidv4();
     try {
-        const investments = await Investment.create({ id, company, capital, userid });
+        const investments = await Investment.create({ id, company, capital, Goal: goal, userid });
         if (!investments) return res.status(400).json({ error: 'Investment not created' })
         return res.status(201).json({ investments });
     }
@@ -34,7 +34,7 @@ export const GetInvestments = async (req: Request, res: Response) => {
 
 //Update investment by id
 export const UpdateInvestment = async (req: Request, res: Response) => {
-    const { company, capital } = req.body;
+    const { company, capital, goal } = req.body;
     const id = req.params.id;
     let data = []
     try {
@@ -44,10 +44,10 @@ export const UpdateInvestment = async (req: Request, res: Response) => {
         if (capital) {
             data.push(await Investment.update({ capital }, { where: { id } }));
         }
-        else {
-            return res.status(400).json({ error: 'Please provide company or capital' });
+        if (goal) {
+            data.push(await Investment.update({ Goal: goal }, { where: { id } }));
         }
-        if (data.length == 2) {
+        if (data.length > 0) {
             return res.status(200).json({ message: 'Investment updated successfully' });
         }
         else {

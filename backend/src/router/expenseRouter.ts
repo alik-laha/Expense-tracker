@@ -31,18 +31,18 @@ router.get("/getearningfrom/:userid", verifyToken, getEarningFrom);
 router.delete("/deleteearningfrom/:id", verifyToken, deleteEarningFrom);
 
 //Investment
-router.post("/createinvestment/:id", verifyToken, CreateInvestment);
+router.post("/createinvestment/:userid", verifyToken, CreateInvestment);
 router.get("/getallinvestment/:userid", verifyToken, GetInvestments);
 router.put("/updateinvestment/:id", verifyToken, UpdateInvestment);
 router.delete("/deleteinvestment/:id", verifyToken, DeleteInvestment);
 
 //Investment In
-router.post("/createinvestmentin/:id", verifyToken, CreateInvestIn);
+router.post("/createinvestmentin/:userid", verifyToken, CreateInvestIn);
 router.get("/getinvestmentin/:userid", verifyToken, GetInvestIn);
 router.delete("/deleteinvestmentin/:id", verifyToken, DeleteInvestIn);
 
 //Goal Setting
-router.post("/creategoal/:id", verifyToken, CreateGoal);
+router.post("/creategoal/:userid", verifyToken, CreateGoal);
 router.get("/getallgoal/:userid", verifyToken, GetGoals);
 router.delete("/deletegoal/:id", verifyToken, DeleteGoal);
 

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 //Create a new investment In
 export const CreateInvestIn = async (req: Request, res: Response) => {
     const { company, type } = req.body;
-    const userid = req.params.id;
+    const userid = req.params.userid;
     const id = uuidv4();
     try {
         const investIn = await InvestIn.create({ id, company, userid, type });
@@ -37,7 +37,7 @@ export const DeleteInvestIn = async (req: Request, res: Response) => {
     try {
         const investIn = await InvestIn.destroy({ where: { id: req.params.id } });
         if (!investIn) return res.status(404).json({ error: 'InvestIn not found' });
-        res.status(204).json({ investIn });
+        res.status(200).json({ msg: 'InvestIn deleted successfully' });
     } catch (error) {
         res.status(500).json({ message: error });
     }
