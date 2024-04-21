@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { Navigate, Outlet } from "react-router-dom";
-import React, { useEffect } from 'react';
+import { Outlet } from "react-router-dom";
+import { useEffect } from 'react';
 
 const PrivateComponent = () => {
-    let auth: boolean = false
     useEffect(() => {
         axios.get('/api/user/verify')
             .then((res) => {
                 console.log(res.data)
-                res.data.verified ? auth = true : auth = false
             })
             .catch((err) => {
                 console.log(err)
@@ -16,6 +14,6 @@ const PrivateComponent = () => {
     }, [])
 
 
-    return auth ? <Outlet /> : <Navigate to='/signup' />
+    return <Outlet />
 }
 export default PrivateComponent;

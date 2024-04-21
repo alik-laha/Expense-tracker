@@ -2,7 +2,7 @@ import User from "../../model/userModel.js";
 import bcrypt from "bcryptjs";
 import { Request, Response } from "express";
 import crypto from "crypto";
-import SendEmail from "../../helper/mailer.js";
+import { VerifyEmail } from "../../helper/mailer.js";
 import jwt from "jsonwebtoken";
 import { usertype } from "../../globalType/type.js";
 
@@ -22,7 +22,7 @@ const Signup = async (req: Request, res: Response) => {
             password: pass,
         });
         if (newUser) {
-            const Mail = await SendEmail({ email, id });
+            const Mail = await VerifyEmail({ email, id });
             if (Mail) {
                 jwt.sign({ id: id }, process.env.JWT_SECRET!, { expiresIn: '1h' }, (err, token) => {
                     if (err) {
