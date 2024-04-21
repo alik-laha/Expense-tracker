@@ -16,7 +16,6 @@ const Login = () => {
         console.log(email, password)
         axios.put("/api/user/login", { email, password })
             .then((res) => {
-                localStorage.setItem('token', res.data.token)
                 localStorage.setItem('user', JSON.stringify(res.data.user))
                 Navigater('/')
             })

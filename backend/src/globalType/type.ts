@@ -4,12 +4,12 @@ export interface email {
 }
 
 export interface usertype {
-    username: string | null,
-    email: string | null,
-    password: string | null,
-    isVerifyed: boolean | null,
-    userid: string | null,
-    cash: number | null,
-    createdAt: Date | null,
-    updatedAt: Date | null
+    Cash: number | null,
+    createdAt: string,
+    email: string,
+    isVerifyed: boolean,
+    password: string,
+    updatedAt: string,
+    userid: string,
+    username: string
 }

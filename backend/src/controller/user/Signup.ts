@@ -4,6 +4,7 @@ import { Request, Response } from "express";
 import crypto from "crypto";
 import SendEmail from "../../helper/mailer.js";
 import jwt from "jsonwebtoken";
+import { usertype } from "../../globalType/type.js";
 
 const Signup = async (req: Request, res: Response) => {
     const { name, email, password, confirmPass } = req.body;
@@ -28,6 +29,7 @@ const Signup = async (req: Request, res: Response) => {
                         return res.status(500).json({ error: 'Server error' });
                     }
                     res.cookie('token', token, { httpOnly: true });
+                    res.cookie('user', id, { httpOnly: true });
                     return res.status(201).json({ message: 'User created successfully' });
                 });
             }

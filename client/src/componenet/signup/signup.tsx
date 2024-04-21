@@ -1,5 +1,6 @@
 import { useNavigate, NavLink } from "react-router-dom"
 import { FormEvent, useState } from "react";
+import axios from "axios";
 
 const Signup = () => {
     const Navigater = useNavigate();
@@ -11,8 +12,14 @@ const Signup = () => {
 
     const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(email, pass, name, confirmPass)
-        Navigater('/')
+        axios.post("/api/user/signup", { name, email, password: pass, confirmPass })
+            .then((res) => {
+                console.log(res.data)
+                Navigater('/')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
     return (
         <div className="alik">
