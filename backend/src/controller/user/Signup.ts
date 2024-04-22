@@ -4,7 +4,6 @@ import { Request, Response } from "express";
 import crypto from "crypto";
 import { VerifyEmail } from "../../helper/mailer.js";
 import jwt from "jsonwebtoken";
-import { usertype } from "../../globalType/type.js";
 
 const Signup = async (req: Request, res: Response) => {
     const { name, email, password, confirmPass } = req.body;
