@@ -64,7 +64,7 @@ const Signup = () => {
                             <div className="inputBox">
                                 <div style={{ display: "flex", alignItems: "center" }}>
                                     <input type={format} value={pass} onChange={(e) => setPass(e.target.value)} required />
-                                    <div style={{ color: "white", }} onClick={handlePassShow}>{show ? <FaEye className="eye" /> : <FaEyeSlash />}</div>
+                                    <div style={{ color: "white", }} onClick={handlePassShow}>{show ? <FaEyeSlash /> : <FaEye className="eye" />}</div>
                                 </div>
                                 <i>Password</i>
 
