@@ -5,6 +5,7 @@ import Login from './componenet/login/login';
 import PrivateComponent from './componenet/private/private';
 import Verify from './componenet/verify/verify';
 import EmailVerify from './componenet/forgotpassword/emailVerify';
+import ResetPassword from './componenet/forgotpassword/resetPassword';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path='/email/verify' element={<EmailVerify />} />
+        <Route path='/reset/password' element={<ResetPassword />} />
         <Route path="/login" element={<Login />} />
         {/* Move PrivateComponent route outside the Route with children */}
         <Route element={<PrivateComponent />}>
