@@ -23,7 +23,7 @@ const Signup = async (req: Request, res: Response) => {
         if (newUser) {
             const Mail = await VerifyEmail({ email, id });
             if (Mail) {
-                jwt.sign({ id: id }, process.env.JWT_SECRET!, { expiresIn: '1h' }, (err, token) => {
+                jwt.sign({ id: id }, process.env.JWT_SECRET!, { expiresIn: process.env.JWT_Time }, (err, token) => {
                     if (err) {
                         return res.status(500).json({ error: 'Server error' });
                     }

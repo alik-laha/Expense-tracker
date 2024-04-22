@@ -8,6 +8,8 @@ import emailVerify from "../controller/user/emailVerify.js";
 import logout from "../controller/user/logout.js";
 import { verifyToken } from "../middleware/verification.js";
 import forgotPassword from "../controller/user/forgotPassword.js";
+import ResetPasswordController from "../controller/user/resetPassword.js";
+
 
 router.post("/signup", CheckUser, Signup);
 
@@ -20,5 +22,7 @@ router.get("/email/verify", emailVerify)
 router.get("/logout", verifyToken, logout)
 
 router.put("/forgotPassword", forgotPassword)
+
+router.put("/resetPassword", ResetPasswordController)
 
 export default router;
