@@ -1,6 +1,8 @@
 import { useNavigate, NavLink } from "react-router-dom"
 import { FormEvent, useState } from "react";
 import axios from "axios";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
     const Navigater = useNavigate();
@@ -8,6 +10,10 @@ const Signup = () => {
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
+    const [error, setError] = useState('none');
+    const [message, setMessage] = useState('');
+    const [show, setShow] = useState(false);
+    const [format, setFormat] = useState('password');
 
 
     const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
@@ -19,8 +25,19 @@ const Signup = () => {
             })
             .catch((err) => {
                 console.log(err)
+                setMessage(err.response.data.error)
+                setError('block')
             })
     }
+    const handlePassShow = () => {
+        setShow(!show)
+        if (show) {
+            setFormat('password')
+        } else {
+            setFormat('text')
+        }
+    }
+
     return (
         <div className="alik">
             <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
@@ -45,7 +62,11 @@ const Signup = () => {
                             </div>
 
                             <div className="inputBox">
-                                <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} required /> <i>Password</i>
+                                <div style={{ display: "flex", alignItems: "center" }}>
+                                    <input type={format} value={pass} onChange={(e) => setPass(e.target.value)} required />
+                                    <div style={{ color: "white", }} onClick={handlePassShow}>{show ? <FaEye className="eye" /> : <FaEyeSlash />}</div>
+                                </div>
+                                <i>Password</i>
 
                             </div>
                             <div className="inputBox">
@@ -60,6 +81,7 @@ const Signup = () => {
                             <div className="inputBox">
 
                                 <input type="submit" value="Login" />
+                                <p style={{ display: error, color: "red", textAlign: "center" }}>{message}</p>
 
                             </div>
 

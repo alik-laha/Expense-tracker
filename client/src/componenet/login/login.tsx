@@ -3,11 +3,18 @@ import "./login.css"
 import { FormEvent } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+
 const Login = () => {
     const Navigater = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('none');
+    const [message, setMessage] = useState('');
+    const [show, setShow] = useState(false);
+    const [format, setFormat] = useState('password');
 
 
 
@@ -21,7 +28,17 @@ const Login = () => {
             })
             .catch((err) => {
                 console.log(err)
+                setMessage(err.response.data.error)
+                setError('block')
             })
+    }
+    const handlePassShow = () => {
+        setShow(!show)
+        if (show) {
+            setFormat('password')
+        } else {
+            setFormat('text')
+        }
     }
 
     return (
@@ -38,14 +55,17 @@ const Login = () => {
                         <form className="form" onSubmit={handleLogin}>
 
                             <div className="inputBox">
-
-                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /><i>Email</i>
-
+                                <div>
+                                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /><i>Email</i>
+                                </div>
                             </div>
 
                             <div className="inputBox">
-                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /> <i>Password</i>
-
+                                <div style={{ display: "flex", alignItems: "center" }}>
+                                    <input type={format} value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                    <div style={{ color: "white", }} onClick={handlePassShow}>{show ? <FaEye className="eye" /> : <FaEyeSlash />}</div>
+                                </div>
+                                <i>Password</i>
                             </div>
 
                             <div className="links"> <a href="#">Forgot Password</a> <NavLink to="/signup">Signup</NavLink>
@@ -55,7 +75,7 @@ const Login = () => {
                             <div className="inputBox">
 
                                 <input type="submit" value="Login" />
-
+                                <p style={{ display: error, color: "red", textAlign: "center" }}>{message}</p>
                             </div>
 
                         </form>

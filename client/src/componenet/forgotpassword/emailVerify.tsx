@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router-dom';
 const EmailVerify = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
+    const [error, setError] = useState('none');
 
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         axios.put('/api/user/forgotPassword', { email })
             .then(() => navigate('/reset/password'))
-            .catch(() => navigate('/reset/password'));
+            .catch(() => setError('block'));
     };
 
     return (
@@ -25,6 +26,7 @@ const EmailVerify = () => {
                     className="email-input"
                 />
                 <button type="submit" className="submit-button">Verify</button>
+                <p style={{ fontSize: "18px", color: "red", display: error }}>Email is not Registared please check the Email</p>
             </form>
         </div>
     );

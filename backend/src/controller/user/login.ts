@@ -2,18 +2,17 @@ import User from "../../model/userModel.js";
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { usertype } from "../../globalType/type.js";
 
 const Login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     try {
         const user: any = await User.findOne({ where: { email: email } });
         if (!user) {
-            return res.status(404).json({ error: 'User not found' });
+            return res.status(404).json({ error: 'Email is not registered' });
         }
         const validPass = await bcrypt.compare(password, user.password);
         if (!validPass) {
-            return res.status(401).json({ error: 'Invalid password' });
+            return res.status(401).json({ error: 'Invalid password please check' });
         }
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, { expiresIn: process.env.JWT_Time });
         res.cookie('token', token, { httpOnly: true })
