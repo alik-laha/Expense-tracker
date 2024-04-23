@@ -1,5 +1,5 @@
 import { useNavigate, NavLink } from "react-router-dom"
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import axios from "axios";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -15,17 +15,25 @@ const Signup = () => {
     const [show, setShow] = useState(false);
     const [format, setFormat] = useState('password');
 
+    useEffect(() => {
+        const auth = localStorage.getItem('loggedIn')
+        if (auth) {
+            Navigater('/')
+        }
+    })
 
     const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         axios.post("/api/user/signup", { name, email, password: pass, confirmPass })
             .then((res) => {
                 console.log(res.data)
+                localStorage.setItem('loggedIn', 'true')
                 Navigater('/')
             })
             .catch((err) => {
                 console.log(err)
                 setMessage(err.response.data.error)
+                localStorage.clear()
                 setError('block')
             })
     }

@@ -7,14 +7,17 @@ const Verify = async (req: Request, res: Response) => {
         const token = req.cookies.token;
         const userid = req.cookies.user;
         if (!token || !userid) {
+
             return res.status(401).json({ error: 'Unauthorized' });
         }
         const verified = jwt.verify(token, process.env.JWT_SECRET!);
         if (!verified) {
+
             return res.status(401).json({ error: 'Unauthorized' });
         }
         const user: any = await User.findOne({ where: { userid } });
         if (!user) {
+
             return res.status(404).json({ error: 'User not found' });
         }
         if (user.isVerifyed) { // Corrected property name to "isVerified"
@@ -24,6 +27,7 @@ const Verify = async (req: Request, res: Response) => {
         }
     } catch (err) {
         console.error(err);
+        localStorage.clear();
         return res.status(500).json({ error: 'Server error' });
     }
 }

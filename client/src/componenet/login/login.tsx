@@ -1,13 +1,20 @@
 import { useNavigate, NavLink } from "react-router-dom"
 import "./login.css"
 import { FormEvent } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const Navigater = useNavigate();
+
+    useEffect(() => {
+        const auth = localStorage.getItem('loggedIn')
+        if (auth) {
+            Navigater('/')
+        }
+    })
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,12 +29,13 @@ const Login = () => {
         e.preventDefault();
         console.log(email, password)
         axios.put("/api/user/login", { email, password })
-            .then((res) => {
-                localStorage.setItem('user', JSON.stringify(res.data.user))
+            .then(() => {
+                localStorage.setItem('loggedIn', 'true')
                 Navigater('/')
             })
             .catch((err) => {
                 console.log(err)
+                localStorage.clear()
                 setMessage(err.response.data.error)
                 setError('block')
             })
