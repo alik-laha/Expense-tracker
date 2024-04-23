@@ -2,11 +2,10 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Signup from './componenet/signup/signup';
 import Login from './componenet/login/login';
-import Verify from './componenet/verify/verify';
 import EmailVerify from './componenet/forgotpassword/emailVerify';
 import ResetPassword from './componenet/forgotpassword/resetPassword';
 import Home from './componenet/home/home';
-import PrivateComponent from './componenet/private/private';
+import { PrivateComponent } from './componenet/private/private';
 
 import Navbar from './componenet/navbar/navbar';
 
@@ -17,7 +16,6 @@ function App() {
     <Routes>
 
       <Route path='/' element={<PrivateComponent />}>
-        <Route path="/verify/user" element={<Verify />} />
         <Route path="/" element={<><Navbar /><Home /></>} />
         {/* Move PrivateComponent route outside the Route with children */}
       </Route>

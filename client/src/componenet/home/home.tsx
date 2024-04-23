@@ -1,6 +1,5 @@
 import { Card } from '@tremor/react';
 
-
 function home() {
 
     return (

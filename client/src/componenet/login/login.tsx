@@ -29,8 +29,9 @@ const Login = () => {
         e.preventDefault();
         console.log(email, password)
         axios.put("/api/user/login", { email, password })
-            .then(() => {
+            .then((res) => {
                 localStorage.setItem('loggedIn', 'true')
+                console.log(res)
                 Navigater('/')
             })
             .catch((err) => {

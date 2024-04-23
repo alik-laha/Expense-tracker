@@ -17,7 +17,7 @@ router.put("/login", Login)
 
 router.get("/verify", Verify)
 
-router.get("/email/verify", emailVerify)
+router.get("/email/verify/:userid", emailVerify)
 
 router.get("/logout", verifyToken, logout)
 

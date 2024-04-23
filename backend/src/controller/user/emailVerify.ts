@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 
 const emailVerify = async (req: Request, res: Response) => {
     try {
-        const userid = req.cookies.user;
+        const userid = req.params.userid;
 
         if (!userid) {
             return res.status(401).json({ error: 'Unauthorized' });
