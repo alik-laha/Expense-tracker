@@ -28,7 +28,6 @@ const Navbar = () => {
                     </div>
                     <div className="menu-items">
                         <li><NavLink to="/">Home</NavLink></li>
-                        <li><NavLink to="#">Dashboard</NavLink></li>
                         <li><NavLink to="#">About</NavLink></li>
                         <li><NavLink to="#">Contact</NavLink></li>
                         {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}

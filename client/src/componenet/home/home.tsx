@@ -1,11 +1,12 @@
+import { Card } from '@tremor/react';
 
 
 function home() {
 
     return (
-        <div>
+        <Card>
             <h1>Alik Laha</h1>
-        </div>
+        </Card>
     )
 }
 
