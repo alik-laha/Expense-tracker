@@ -21,7 +21,7 @@ export const CreateGoal = async (req: Request, res: Response) => {
 //Get all goals
 export const GetGoals = async (req: Request, res: Response) => {
     try {
-        const userid = req.params.userid;
+        const userid = req.cookies.user;
         const goals = await Goal.findAll({ where: { userid } });
         if (!goals) return res.status(404).json({ error: 'Goals not found' });
         return res.status(200).json({ goals });

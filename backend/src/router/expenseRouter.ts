@@ -32,7 +32,7 @@ router.delete("/deleteearningfrom/:id", verifyToken, deleteEarningFrom);
 
 //Investment
 router.post("/createinvestment/:userid", verifyToken, CreateInvestment);
-router.get("/getallinvestment/:userid", verifyToken, GetInvestments);
+router.get("/getallinvestment", verifyToken, GetInvestments);
 router.put("/updateinvestment/:id", verifyToken, UpdateInvestment);
 router.delete("/deleteinvestment/:id", verifyToken, DeleteInvestment);
 
@@ -43,7 +43,7 @@ router.delete("/deleteinvestmentin/:id", verifyToken, DeleteInvestIn);
 
 //Goal Setting
 router.post("/creategoal/:userid", verifyToken, CreateGoal);
-router.get("/getallgoal/:userid", verifyToken, GetGoals);
+router.get("/getallgoal", verifyToken, GetGoals);
 router.delete("/deletegoal/:id", verifyToken, DeleteGoal);
 
 export default router;

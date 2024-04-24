@@ -21,7 +21,7 @@ export const CreateInvestment = async (req: Request, res: Response) => {
 //Get all investments
 export const GetInvestments = async (req: Request, res: Response) => {
     try {
-        const userid = req.params.userid;
+        const userid = req.cookies.user;
         const investments = await Investment.findAll({ where: { userid } });
         if (!investments) return res.status(404).json({ error: 'Investments not found' });
         return res.status(200).json({ investments });

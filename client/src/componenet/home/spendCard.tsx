@@ -2,20 +2,21 @@ import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import Context from "../context/context";
-import { Earnings, Spendings } from "../../type/globaleType";
+import { Spendings } from "../../type/globaleType";
 
 
 
 const SpendCard = () => {
-    const [spendData, setSpendData] = useState([])
     const [totalSpend, setTotalSpend] = useState(0)
-    const [totalEarning, setTotalEarning] = useState(0)
+    const [totalEarnings, setTotalEarnings] = useState(0)
 
-    const { earningData } = useContext(Context)
+
+
+    const { earningData, setSpendingData, totalInvested, setTotalEarning } = useContext(Context)
     useEffect(() => {
         earningData.map((data) => {
+            setTotalEarnings((prev) => prev + data.amount)
             setTotalEarning((prev) => prev + data.amount)
-
         })
     }, [earningData])
 
@@ -23,8 +24,8 @@ const SpendCard = () => {
         axios.get("/api/expense/getallspending")
             .then((res) => {
                 console.log(res.data)
-                setSpendData(res.data.spending)
                 countSpend(res.data.spending)
+                setSpendingData(res.data.spending)
             }
             ).catch((err) => {
                 console.log(err)
@@ -39,16 +40,17 @@ const SpendCard = () => {
     useEffect(() => {
         fetchData()
     }, [])
+    console.log(totalInvested)
     return (
         <div className="relative mt-5 ml-5 inline-block w-96">
             <Card className="max-w-sm">
                 <Text>Spent Amount</Text>
                 <Metric>{totalSpend}rs</Metric>
                 <Flex className="mt-4">
-                    <Text>Spent {totalSpend / totalEarning * 100}% of earning</Text>
-                    <Text>{totalEarning}rs</Text>
+                    <Text>Spent {((totalSpend / (totalEarnings - totalInvested)) * 100).toFixed(2)}% of earning</Text>
+                    <Text>{totalEarnings - totalInvested}rs</Text>
                 </Flex>
-                <ProgressBar value={totalSpend / totalEarning * 100} className="mt-2" />
+                <ProgressBar value={(totalSpend / (totalEarnings - totalInvested)) * 100} className="mt-2" />
             </Card>
         </div>
     )

@@ -15,3 +15,19 @@ export interface Spendings {
     createdAt: string,
     updatedAt: string
 }
+export interface Goal {
+    id: string,
+    amount: number,
+    goal: string,
+    createdAt: string,
+    updatedAt: string
+}
+export interface Investment {
+    id: string,
+    goal: string,
+    capital: number,
+    company: string,
+    userid: string,
+    createdAt: string,
+    updatedAt: string
+}
