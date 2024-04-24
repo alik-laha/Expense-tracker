@@ -16,7 +16,7 @@ const SpendCard = () => {
     useEffect(() => {
         earningData.map((data) => {
             setTotalEarnings((prev) => prev + data.amount)
-            setTotalEarning((prev) => prev + data.amount)
+            setTotalEarning((prev: number): void => prev + data.amount)
         })
     }, [earningData])
 
