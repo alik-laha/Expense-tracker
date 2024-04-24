@@ -1,14 +1,21 @@
-
+import SpendCard from "./spendCard";
+import EarningAndSpenting from "./earningSpent";
 import "./home.css"
-import HomeRightPage from './homeRightPage';
+import InvestMentGoalCard from './investmentGoalCard';
+import EarningCard from "./earningCard";
 
 function home() {
 
     return (
         <>
 
-            <div >
-                <HomeRightPage />
+            <div className="flex ">
+                <InvestMentGoalCard />
+                <SpendCard />
+                <EarningCard />
+            </div>
+            <div className="mt-5 flex">
+                <EarningAndSpenting />
             </div>
         </>
     )

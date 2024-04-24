@@ -1,13 +1,13 @@
-import { Card, Flex, Text, Metric, ProgressBar } from "@tremor/react";
+import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
 
-const HomeRightPage = () => {
+const spendCard = () => {
     return (
         <div className="relative mt-5 ml-5 inline-block w-96">
             <Card className="max-w-sm">
-                <Text>Income</Text>
+                <Text>Spent Amount</Text>
                 <Metric>$ 25,000</Metric>
                 <Flex className="mt-4">
-                    <Text>50% of target</Text>
+                    <Text>Spent 50% of earning</Text>
                     <Text>$ 50,000</Text>
                 </Flex>
                 <ProgressBar value={50} className="mt-2" />
@@ -16,4 +16,4 @@ const HomeRightPage = () => {
     )
 }
 
-export default HomeRightPage;
+export default spendCard;
