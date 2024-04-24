@@ -1,11 +1,12 @@
-import { Card } from '@tremor/react';
+import Sidebar from './sideBar';
+import "./home.css"
 
 function home() {
 
     return (
-        <Card>
-            <h1>Alik Laha</h1>
-        </Card>
+        <>
+            <Sidebar />
+        </>
     )
 }
 

@@ -18,6 +18,8 @@
 
 .navbar .menu-items {
     display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .navbar .nav-container li {
