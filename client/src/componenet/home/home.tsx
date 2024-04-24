@@ -1,11 +1,15 @@
-import Sidebar from './sideBar';
+
 import "./home.css"
+import HomeRightPage from './homeRightPage';
 
 function home() {
 
     return (
         <>
-            <Sidebar />
+
+            <div >
+                <HomeRightPage />
+            </div>
         </>
     )
 }

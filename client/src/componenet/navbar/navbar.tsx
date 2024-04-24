@@ -26,11 +26,40 @@ const Navbar = () => {
                         <span className="line line2"></span>
                         <span className="line line3"></span>
                     </div>
-                    <div className="menu-items">
+                    {/* <div className="menu-items">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="#">About</NavLink></li>
                         <li><NavLink to="#">Contact</NavLink></li>
                         {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}
+                    </div> */}
+                    <div className="menu-items">
+                        <ul>
+                            <li>
+                                <NavLink to="/">Earning</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/">Spending</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/">Invest</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/">Goal</NavLink>
+
+                            </li>
+                            <li>
+                                <NavLink to="/">Invest In</NavLink>
+
+                            </li>
+                            <li>
+                                <NavLink to="/">Spending On</NavLink>
+
+                            </li>
+                            <li>
+                                <NavLink to="/">Earning From</NavLink>
+                            </li>
+                            {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}
+                        </ul>
                     </div>
                 </div>
             </div>

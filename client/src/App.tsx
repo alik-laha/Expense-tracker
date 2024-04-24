@@ -6,7 +6,6 @@ import EmailVerify from './componenet/forgotpassword/emailVerify';
 import ResetPassword from './componenet/forgotpassword/resetPassword';
 import Home from './componenet/home/home';
 import { PrivateComponent } from './componenet/private/private';
-
 import Navbar from './componenet/navbar/navbar';
 
 
