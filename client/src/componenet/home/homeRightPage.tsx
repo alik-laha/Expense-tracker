@@ -2,7 +2,7 @@ import { Card, Flex, Text, Metric, ProgressBar } from "@tremor/react";
 
 const HomeRightPage = () => {
     return (
-        <div className="-z-50">
+        <div className="relative mt-5 ml-5 inline-block w-96">
             <Card className="max-w-sm">
                 <Text>Income</Text>
                 <Metric>$ 25,000</Metric>

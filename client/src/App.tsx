@@ -1,13 +1,14 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
-import Signup from './componenet/signup/signup';
-import Login from './componenet/login/login';
-import EmailVerify from './componenet/forgotpassword/emailVerify';
-import ResetPassword from './componenet/forgotpassword/resetPassword';
-import Home from './componenet/home/home';
 import { PrivateComponent } from './componenet/private/private';
-import Navbar from './componenet/navbar/navbar';
-
+import { lazy } from 'react';
+const Navbar = lazy(() => import('./componenet/navbar/navbar'));
+const Login = lazy(() => import('./componenet/login/login'));
+const Signup = lazy(() => import('./componenet/signup/signup'));
+const Home = lazy(() => import('./componenet/home/home'));
+const EmailVerify = lazy(() => import('./componenet/forgotpassword/emailVerify'));
+const ResetPassword = lazy(() => import('./componenet/forgotpassword/resetPassword'));
+``
 
 function App() {
   return (
