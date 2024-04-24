@@ -10,7 +10,7 @@ import { CreateGoal, DeleteGoal, GetGoals } from "../controller/investment/goal.
 import { verifyToken } from "../middleware/verification.js";
 //Spendings
 router.post("/spending/:id", verifyToken, CreateSpending);
-router.get("/getallspending/:userid", verifyToken, GetSpending)
+router.get("/getallspending", verifyToken, GetSpending)
 router.put("/updatespending/:id", verifyToken, UpdateSpending);
 router.delete("/deletespending/:id", verifyToken, DeleteSpending)
 
@@ -21,7 +21,7 @@ router.get("/getallspendon/:userid", verifyToken, GetAllSpendon);
 
 //Earnings
 router.post("/earnings/:userid", verifyToken, CreateEarning);
-router.get("/getallearnings/:userid", verifyToken, GetEarnings)
+router.get("/getallearnings", verifyToken, GetEarnings)
 router.put("/updateearnings/:id", verifyToken, UpdateEarning);
 router.delete("/deleteearnings/:id", verifyToken, DeleteEarning)
 

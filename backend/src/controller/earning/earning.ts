@@ -21,7 +21,7 @@ export const CreateEarning = async (req: Request, res: Response) => {
 //Get all earnings
 export const GetEarnings = async (req: Request, res: Response) => {
     try {
-        const userid = req.params.userid;
+        const userid = req.cookies.user;
         const earnings = await Earning.findAll({ where: { userid } });
         if (!earnings) return res.status(404).json({ error: 'Earnings not found' });
         return res.status(200).json({ earnings });

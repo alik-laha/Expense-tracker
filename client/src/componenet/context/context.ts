@@ -1,13 +1,14 @@
 import { createContext } from 'react';
+import { Earnings } from '../../type/globaleType';
 
 interface ContextType {
-    setIsloggedin: (data: boolean) => void;
-    isloggedin: boolean;
+    setEarningData: (data: Array<Earnings>) => void;
+    earningData: Earnings[];
 }
 
 const Context = createContext<ContextType>({
-    setIsloggedin: () => { }, // Initial value for setSearchData
-    isloggedin: false,
+    setEarningData: () => [], // Initial value for setSearchData
+    earningData: [],
 });
 
 export default Context;

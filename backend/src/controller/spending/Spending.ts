@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 //Create Spending
 export const CreateSpending = async (req: Request, res: Response) => {
+
     const { amount, spendOn } = req.body;
     const userid = req.params.id;
     const id = uuidv4();
@@ -21,7 +22,7 @@ export const CreateSpending = async (req: Request, res: Response) => {
 
 //Get Spending
 export const GetSpending = async (req: Request, res: Response) => {
-    const userid = req.params.userid;
+    const userid = req.cookies.user;
     try {
         const spending = await Spending.findAll({ where: { userid } });
         if (!spending) return res.status(400).json({ error: 'Spending not found' })

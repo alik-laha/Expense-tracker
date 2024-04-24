@@ -1,5 +1,5 @@
 import SpendCard from "./spendCard";
-import EarningAndSpenting from "./earningSpent";
+import EarningAndSpenting from "./earningSpentchart";
 import "./home.css"
 import InvestMentGoalCard from './investmentGoalCard';
 import EarningCard from "./earningCard";
