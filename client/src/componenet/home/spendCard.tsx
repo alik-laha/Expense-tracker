@@ -32,11 +32,58 @@ const SpendCard = () => {
             }
             )
     }
-    const countSpend = (data: Array<Spendings>) => {
-        data.map((item) => {
-            setTotalSpend((prev) => prev + item.amount)
-        })
+    const calculateMonth = (month: string) => {
+        if (month === "01") {
+            return "Jan"
+        }
+        if (month === "02") {
+            return "Feb"
+        }
+        if (month === "03") {
+            return "Mar"
+        }
+        if (month === "04") {
+            return "Apr"
+        }
+        if (month === "05") {
+            return "May"
+        }
+        if (month === "06") {
+            return "Jun"
+        }
+        if (month === "07") {
+            return "Jul"
+        }
+        if (month === "08") {
+            return "Aug"
+        }
+        if (month === "09") {
+            return "Sep"
+        }
+        if (month === "10") {
+            return "Oct"
+        }
+        if (month === "11") {
+            return "Nov"
+        }
+        if (month === "12") {
+            return "Dec"
+        }
     }
+    const chartData: Array<{ year: string, date: string, amount: number }> = []
+    const countSpend = (data: Array<Spendings>) => {
+        data.map((item: Spendings): void => {
+            setTotalSpend((prev) => prev + item.amount)
+            console.log(item.createdAt.slice(2, 4))
+            chartData.push({
+                date: calculateMonth(item.createdAt.slice(5, 7))!,
+                year: item.createdAt.slice(2, 4),
+                amount: item.amount
+            })
+        })
+        console.log(chartData)
+    }
+
     useEffect(() => {
         fetchData()
     }, [])
