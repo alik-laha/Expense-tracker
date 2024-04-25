@@ -1,61 +1,82 @@
-import { Card, LineChart, List, ListItem } from '@tremor/react';
+import { LineChart } from '@tremor/react';
 
-function classNames(...classes: (string | boolean | undefined)[]) {
-    return classes.filter(Boolean).join(' ');
-}
-
-const data = [
-    { date: 'Jan 23', Organic: 232, Sponsored: 0, Affiliate: 49, }, { date: 'Feb 23', Organic: 241, Sponsored: 0, Affiliate: 61, }, { date: 'Mar 23', Organic: 291, Sponsored: 0, Affiliate: 55, }, { date: 'Apr 23', Organic: 101, Sponsored: 0, Affiliate: 21, }, { date: 'May 23', Organic: 318, Sponsored: 0, Affiliate: 66, }, { date: 'Jun 23', Organic: 205, Sponsored: 0, Affiliate: 69, }, { date: 'Jul 23', Organic: 372, Sponsored: 0, Affiliate: 55, }, { date: 'Aug 23', Organic: 341, Sponsored: 0, Affiliate: 74, }, { date: 'Sep 23', Organic: 387, Sponsored: 120, Affiliate: 190, }, { date: 'Oct 23', Organic: 220, Sponsored: 0, Affiliate: 89, }, { date: 'Nov 23', Organic: 372, Sponsored: 0, Affiliate: 44, }, { date: 'Dec 23', Organic: 321, Sponsored: 0, Affiliate: 93, },
+const chartdata = [
+    {
+        date: 'Jan 22',
+        SemiAnalysis: 2890,
+        'The Pragmatic Engineer': 2338,
+    },
+    {
+        date: 'Feb 22',
+        SemiAnalysis: 2756,
+        'The Pragmatic Engineer': 2103,
+    },
+    {
+        date: 'Mar 22',
+        SemiAnalysis: 3322,
+        'The Pragmatic Engineer': 2194,
+    },
+    {
+        date: 'Apr 22',
+        SemiAnalysis: 3470,
+        'The Pragmatic Engineer': 2108,
+    },
+    {
+        date: 'May 22',
+        SemiAnalysis: 3475,
+        'The Pragmatic Engineer': 1812,
+    },
+    {
+        date: 'Jun 22',
+        SemiAnalysis: 3129,
+        'The Pragmatic Engineer': 1726,
+    },
+    {
+        date: 'Jul 22',
+        SemiAnalysis: 3490,
+        'The Pragmatic Engineer': 1982,
+    },
+    {
+        date: 'Aug 22',
+        SemiAnalysis: 2903,
+        'The Pragmatic Engineer': 2012,
+    },
+    {
+        date: 'Sep 22',
+        SemiAnalysis: 2643,
+        'The Pragmatic Engineer': 2342,
+    },
+    {
+        date: 'Oct 22',
+        SemiAnalysis: 2837,
+        'The Pragmatic Engineer': 2473,
+    },
+    {
+        date: 'Nov 22',
+        SemiAnalysis: 2954,
+        'The Pragmatic Engineer': 3848,
+    },
+    {
+        date: 'Dec 22',
+        SemiAnalysis: 3239,
+        'The Pragmatic Engineer': 3736,
+    },
 ];
 
-const summary = [
-    { name: 'Organic', value: 3273, }, { name: 'Sponsored', value: 120, }, { name: 'Affiliate', value: 866, },
-];
+const dataFormatter = (number: number) =>
+    `$${Intl.NumberFormat('us').format(number).toString()}`;
 
-const valueFormatter = (number: number) =>
-    `${Intl.NumberFormat('us').format(number).toString()}`;
-
-const statusColor = {
-    Organic: 'bg-blue-500',
-    Sponsored: 'bg-violet-500',
-    Affiliate: 'bg-fuchsia-500',
-};
-
-export default function WarningAndSpenting() {
+export default function EarningSpendingChart() {
     return (
-        <>
-            <Card className="sm:mx-auto sm:max-w-md">
-                <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                    Units sold by channel
-                </h3>
-                <LineChart
-                    data={data}
-                    index="date"
-                    categories={['Organic', 'Sponsored', 'Affiliate']}
-                    colors={['blue', 'violet', 'fuchsia']}
-                    valueFormatter={valueFormatter}
-                    showLegend={false}
-                    showYAxis={false}
-                    startEndOnly={true}
-                    className="mt-6 h-32"
-                />
-                <List className="mt-2">
-                    {summary.map((item) => (
-                        <ListItem key={item.name}>
-                            <div className="flex items-center space-x-2">
-                                <span
-                                    className={classNames(statusColor[item.name], 'h-0.5 w-3')}
-                                    aria-hidden={true}
-                                />
-                                <span>{item.name}</span>
-                            </div>
-                            <span className="font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                                {valueFormatter(item.value)}
-                            </span>
-                        </ListItem>
-                    ))}
-                </List>
-            </Card>
-        </>
+        <LineChart
+            className="h-80 m-7"
+            data={chartdata}
+            index="date"
+            categories={['SemiAnalysis']}
+            colors={['indigo']}
+            valueFormatter={dataFormatter}
+            yAxisWidth={60}
+            onValueChange={(v) => console.log(v)}
+        />
     );
 }

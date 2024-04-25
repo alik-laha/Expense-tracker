@@ -1,6 +1,6 @@
 import SpendCard from "./spendCard";
-import EarningAndSpenting from "./earningSpentchart";
 import "./home.css"
+import EarningSpendingChart from "./earningSpentchart";
 import InvestMentGoalCard from './investmentGoalCard';
 import EarningCard from "./earningCard";
 
@@ -15,7 +15,7 @@ function home() {
                 <EarningCard />
             </div>
             <div className="mt-5 flex">
-                <EarningAndSpenting />
+                <EarningSpendingChart />
             </div>
         </>
     )
