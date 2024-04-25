@@ -2,7 +2,7 @@ import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import Context from "../context/context";
-import { Spendings } from "../../type/globaleType";
+import { Spendings, SpendingChart } from "../../type/globaleType";
 
 
 
@@ -32,52 +32,13 @@ const SpendCard = () => {
             }
             )
     }
-    const calculateMonth = (month: string) => {
-        if (month === "01") {
-            return "Jan"
-        }
-        if (month === "02") {
-            return "Feb"
-        }
-        if (month === "03") {
-            return "Mar"
-        }
-        if (month === "04") {
-            return "Apr"
-        }
-        if (month === "05") {
-            return "May"
-        }
-        if (month === "06") {
-            return "Jun"
-        }
-        if (month === "07") {
-            return "Jul"
-        }
-        if (month === "08") {
-            return "Aug"
-        }
-        if (month === "09") {
-            return "Sep"
-        }
-        if (month === "10") {
-            return "Oct"
-        }
-        if (month === "11") {
-            return "Nov"
-        }
-        if (month === "12") {
-            return "Dec"
-        }
-    }
-    const chartData: Array<{ year: string, date: string, amount: number }> = []
+    const chartData: Array<SpendingChart> = []
     const countSpend = (data: Array<Spendings>) => {
         data.map((item: Spendings): void => {
             setTotalSpend((prev) => prev + item.amount)
             console.log(item.createdAt.slice(2, 4))
             chartData.push({
-                date: calculateMonth(item.createdAt.slice(5, 7))!,
-                year: item.createdAt.slice(2, 4),
+                date: item.createdAt.slice(0, 10),
                 amount: item.amount
             })
         })

@@ -31,3 +31,8 @@ export interface Investment {
     createdAt: string,
     updatedAt: string
 }
+
+export interface SpendingChart {
+    date: string,
+    amount: number
+}
