@@ -1,15 +1,17 @@
 import { createContext } from 'react';
-import { Earnings, Spendings } from '../../type/globaleType';
+import { Earnings, Investment, Spendings } from '../../type/globaleType';
 
 interface ContextType {
     setEarningData: (data: Array<Earnings>) => void;
     setSpendingData: (data: Array<Spendings>) => void;
     setTotalInvested: (data: number) => void;
     setTotalEarning: (data: number) => void;
+    setInvestedData: (data: Array<Investment>) => void;
     earningData: Earnings[];
     spendingData: Spendings[];
     totalInvested: number;
     totalEarning: number;
+    investedData: Investment[];
 }
 
 const Context = createContext<ContextType>({
@@ -20,7 +22,9 @@ const Context = createContext<ContextType>({
     setTotalInvested: () => 0,
     totalInvested: 0,
     setTotalEarning: () => 0,
-    totalEarning: 0
+    totalEarning: 0,
+    setInvestedData: () => [],
+    investedData: []
 });
 
 export default Context;

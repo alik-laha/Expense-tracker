@@ -3,21 +3,22 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { Goal, Investment } from "../../type/globaleType";
 import Context from "../context/context";
+import { set } from "mongoose";
 
 
 
 const InvestMentGoalCard = () => {
     const [goal, setGoal] = useState(0)
     const [invested, setInvested] = useState(0)
-    const { setTotalInvested } = useContext(Context)
+    const { setTotalInvested, setInvestedData } = useContext(Context)
 
     const fetchData = () => {
         axios.get("/api/expense/getallgoal")
             .then((res): void => {
                 countGoal(res.data.goals)
                 axios.get('/api/expense/getallinvestment').then((res) => {
-                    console.log(res.data)
                     countInvest(res.data.investments)
+                    setInvestedData(res.data.investments)
                 }).catch(err => console.log(err))
             }
             ).catch((err) => {
@@ -34,6 +35,7 @@ const InvestMentGoalCard = () => {
     const countInvest = (data: Array<Investment>) => {
         data.map((item): void => {
             setInvested((prev) => prev + item.capital)
+
             setTotalInvested((prev: number): void => prev + item.capital)
         })
     }
