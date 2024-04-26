@@ -1,6 +1,6 @@
 import SpendCard from "./spendCard";
 import "./home.css"
-import EarningSpendingChart from "./Spentchart";
+import EarningSpendingChart from "./EarningChart";
 import InvestMentGoalCard from './investmentGoalCard';
 import EarningCard from "./earningCard";
 
@@ -14,9 +14,12 @@ function home() {
                 <SpendCard />
                 <EarningCard />
             </div>
-            <div className="mt-5 w-4/5 absolute left-10">
+            <span className="w-10/12 block relative mt-5 left-32">
                 <EarningSpendingChart />
-            </div>
+            </span>
+            <span className="w-10/12 block relative mt-5 left-32">
+                <EarningSpendingChart />
+            </span>
         </>
     )
 }

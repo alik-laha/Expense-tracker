@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import Context from '../context/context';
 
 const dataFormatter = (number: number) =>
-    `${Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(number).toString()}`;
+    `${Intl.NumberFormat('en-IN', { currency: 'INR' }).format(number).toString()}`;
 
 export default function EarningSpendingChart() {
     const { spendingData } = useContext(Context);
