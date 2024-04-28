@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Goal, InvestIn } from "../../type/globaleType";
 
@@ -9,8 +9,16 @@ const AddInvestment = () => {
 
     const [CompanyData, setCompanyData] = useState([]);
     const [goalData, setGoalData] = useState([]);
-    const handleSubmit = () => {
-        console.log(companyName, capital, goal)
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        axios.post('/api/expense/createinvestment', { company: companyName, capital, goal })
+            .then((res) => {
+                console.log(res.data)
+            }
+            )
+            .catch((err) => {
+                console.log(err)
+            })
     }
     const fetchCompany = async () => {
         axios.get('/api/expense/getinvestmentin')

@@ -52,7 +52,7 @@ const InvestMentGoalCard = () => {
                 <Text>Investment</Text>
                 <Metric>{invested}rs</Metric>
                 <Flex className="mt-4">
-                    <Text>{invested / goal * 100}% of Goal</Text>
+                    <Text>{(invested / goal * 100).toFixed(2)}% of Goal</Text>
                     <Text>{goal}rs</Text>
                 </Flex>
                 <ProgressBar value={invested / goal * 100} className="mt-2" />
