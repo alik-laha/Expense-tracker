@@ -10,7 +10,7 @@ export default function InvestedChart() {
 
     return (
         <Card>
-            <Title>Amount spending Over the year
+            <Title>Amount Invested Over the year
 
             </Title>
             <LineChart

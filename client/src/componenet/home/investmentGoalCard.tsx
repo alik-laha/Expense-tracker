@@ -3,11 +3,12 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { Goal, Investment } from "../../type/globaleType";
 import Context from "../context/context";
-import { set } from "mongoose";
+import { useNavigate } from "react-router-dom";
 
 
 
 const InvestMentGoalCard = () => {
+    const navigate = useNavigate()
     const [goal, setGoal] = useState(0)
     const [invested, setInvested] = useState(0)
     const { setTotalInvested, setInvestedData } = useContext(Context)
@@ -47,7 +48,7 @@ const InvestMentGoalCard = () => {
 
 
     return (
-        <div className="relative mt-5 ml-5 inline-block w-96">
+        <div className="relative mt-5 ml-5 inline-block w-96" onClick={() => navigate("/view/investment/details")}>
             <Card className="max-w-sm">
                 <Text>Investment</Text>
                 <Metric>{invested}rs</Metric>

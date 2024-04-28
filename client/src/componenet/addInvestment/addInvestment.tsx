@@ -16,7 +16,7 @@ const AddInvestment = () => {
         axios.post('/api/expense/createinvestment', { company: companyName, capital, goal })
             .then((res) => {
                 console.log(res.data)
-                navigate('/investment')
+                navigate('/')
             }
             )
             .catch((err) => {
