@@ -14,15 +14,14 @@ export default function EarningSpendingChart() {
 
             </Title>
             <LineChart
-                className="mt-1 w-full h-96"
+                className="mt-4 h-72"
                 data={spendingData}
-                index="createdat"
-                categories={["amount"]}
-                colors={["blue"]}
+                index="createdAt"
+                yAxisWidth={60}
+                categories={['amount']}
+                colors={['indigo']}
                 valueFormatter={dataFormatter}
-                yAxisWidth={40}
-            >
-            </LineChart>
+            />
         </Card>
     );
 }

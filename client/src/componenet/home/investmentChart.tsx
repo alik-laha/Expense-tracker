@@ -16,11 +16,11 @@ export default function InvestedChart() {
             <LineChart
                 className="mt-1 w-full h-96"
                 data={investedData}
-                index="createdat"
+                index="createdAt"
                 categories={["capital"]}
                 colors={["blue"]}
                 valueFormatter={dataFormatter}
-                yAxisWidth={40}
+                yAxisWidth={60}
             >
             </LineChart>
         </Card>
