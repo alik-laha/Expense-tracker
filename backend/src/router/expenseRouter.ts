@@ -26,7 +26,7 @@ router.put("/updateearnings/:id", verifyToken, UpdateEarning);
 router.delete("/deleteearnings/:id", verifyToken, DeleteEarning)
 
 //Earning From
-router.post("/createearningfrom/:userid", verifyToken, createEarningFrom);
+router.post("/createearningfrom", verifyToken, createEarningFrom);
 router.get("/getearningfrom", verifyToken, getEarningFrom);
 router.delete("/deleteearningfrom/:id", verifyToken, deleteEarningFrom);
 
