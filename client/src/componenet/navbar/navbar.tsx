@@ -16,6 +16,10 @@ const Navbar = () => {
                 console.log(err)
             })
     }
+    const handleclick = () => {
+        const checkbox = document.querySelector('.checkbox') as HTMLInputElement
+        checkbox.checked = false
+    }
     return (
         <nav>
             <div className="navbar">
@@ -29,28 +33,28 @@ const Navbar = () => {
                     <div className="menu-items">
                         <ul>
                             <li>
-                                <NavLink to="/add/earning">Add Earning</NavLink>
+                                <NavLink to="/add/earning" onClick={handleclick}>Add Earning</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Add Spending</NavLink>
+                                <NavLink to="/" onClick={handleclick}>Add Spending</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Add Invest</NavLink>
+                                <NavLink to="/" onClick={handleclick}>Add Invest</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Add Goal</NavLink>
+                                <NavLink to="/" onClick={handleclick}>Add Goal</NavLink>
 
                             </li>
                             <li>
-                                <NavLink to="/">Create Invest In</NavLink>
+                                <NavLink to="/" onClick={handleclick}>Create Invest In</NavLink>
 
                             </li>
                             <li>
-                                <NavLink to="/">Create Spending On</NavLink>
+                                <NavLink to="/" onClick={handleclick}>Create Spending On</NavLink>
 
                             </li>
                             <li>
-                                <NavLink to="/">Create Earning From</NavLink>
+                                <NavLink to="/" onClick={handleclick}>Create Earning From</NavLink>
                             </li>
                             {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}
                         </ul>
