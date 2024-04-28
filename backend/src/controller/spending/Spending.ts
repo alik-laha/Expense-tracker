@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 export const CreateSpending = async (req: Request, res: Response) => {
 
     const { amount, spendOn } = req.body;
-    const userid = req.params.id;
+    const userid = req.cookies.user;
     const id = uuidv4();
 
     try {

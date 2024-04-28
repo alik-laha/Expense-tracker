@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const createSpendon = async (req: Request, res: Response) => {
     const { name } = req.body;
-    const userid = req.params.userid;
+    const userid = req.cookies.user;
     const id = uuidv4();
     try {
         const oldSpendon = await Spendon.findOne({ where: { spendOn: name, userid } });
@@ -35,7 +35,7 @@ export const DeleteSpendon = async (req: Request, res: Response) => {
 
 //Get All Spendon
 export const GetAllSpendon = async (req: Request, res: Response) => {
-    const userid = req.params.userid;
+    const userid = req.cookies.user;
     try {
         const spendon = await Spendon.findAll({ where: { userid } });
         if (!spendon) return res.status(400).json({ error: 'Spendon not found' })

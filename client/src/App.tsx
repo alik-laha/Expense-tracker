@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { PrivateComponent } from './componenet/private/private';
 import { lazy } from 'react';
 import AddEarning from './componenet/addEarning/addEarning';
+import AddSpending from './componenet/addSpending/addSpending';
 const Navbar = lazy(() => import('./componenet/navbar/navbar'));
 const Login = lazy(() => import('./componenet/login/login'));
 const Signup = lazy(() => import('./componenet/signup/signup'));
@@ -19,6 +20,7 @@ function App() {
       <Route path='/' element={<PrivateComponent />}>
         <Route path="/" element={<><Navbar /><Home /></>} />
         <Route path='/add/earning' element={<><Navbar /><AddEarning /></>} />
+        <Route path='/add/spending' element={<><Navbar /><AddSpending /></>} />
         {/* Move PrivateComponent route outside the Route with children */}
       </Route>
 

@@ -9,15 +9,15 @@ import { CreateInvestIn, GetInvestIn, DeleteInvestIn } from "../controller/inves
 import { CreateGoal, DeleteGoal, GetGoals } from "../controller/investment/goal.js";
 import { verifyToken } from "../middleware/verification.js";
 //Spendings
-router.post("/spending/:id", verifyToken, CreateSpending);
+router.post("/spending", verifyToken, CreateSpending);
 router.get("/getallspending", verifyToken, GetSpending)
 router.put("/updatespending/:id", verifyToken, UpdateSpending);
 router.delete("/deletespending/:id", verifyToken, DeleteSpending)
 
 //SpendOn
-router.post("/spendon/:userid", verifyToken, createSpendon);
+router.post("/spendon", verifyToken, createSpendon);
 router.delete("/deletespendon/:id", verifyToken, DeleteSpendon);
-router.get("/getallspendon/:userid", verifyToken, GetAllSpendon);
+router.get("/getallspendon", verifyToken, GetAllSpendon);
 
 //Earnings
 router.post("/earnings", verifyToken, CreateEarning);

@@ -44,3 +44,11 @@ export interface EarningFrom {
     createdAt: string,
     updatedAt: string
 }
+
+export interface SpendOn {
+    id: string,
+    spendOn: string,
+    userid: string,
+    createdAt: string,
+    updatedAt: string
+}

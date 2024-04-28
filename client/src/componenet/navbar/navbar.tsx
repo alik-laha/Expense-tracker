@@ -39,7 +39,7 @@ const Navbar = () => {
                                 <NavLink to="/add/earning" onClick={handleclick}>Add Earning</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/" onClick={handleclick}>Add Spending</NavLink>
+                                <NavLink to="/add/spending" onClick={handleclick}>Add Spending</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/" onClick={handleclick}>Add Invest</NavLink>
