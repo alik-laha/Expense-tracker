@@ -49,8 +49,7 @@ const Navbar = () => {
 
                             </li>
                             <li>
-                                <NavLink to="/" onClick={handleclick}>Create Invest In</NavLink>
-
+                                <NavLink to="/create/investin" onClick={handleclick}>Create Invest In</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/" onClick={handleclick}>Create Spending On</NavLink>
