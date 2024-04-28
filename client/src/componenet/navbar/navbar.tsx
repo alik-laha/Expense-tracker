@@ -56,7 +56,7 @@ const Navbar = () => {
 
                             </li>
                             <li>
-                                <NavLink to="/" onClick={handleclick}>Create Earning From</NavLink>
+                                <NavLink to="/create/earningfrom" onClick={handleclick}>Create Earning From</NavLink>
                             </li>
                             {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}
                         </ul>
