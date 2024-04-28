@@ -8,6 +8,8 @@ import AddSpending from './componenet/addSpending/addSpending';
 import AddInvestment from './componenet/addInvestment/addInvestment';
 import AddGoal from './componenet/addGoal/AddGoal';
 import CreateInvestIn from './componenet/createInvestIn/createInvestIn';
+import CreateSpendOn from './componenet/createSpendon/createSpendon';
+
 const Navbar = lazy(() => import('./componenet/navbar/navbar'));
 const Login = lazy(() => import('./componenet/login/login'));
 const Signup = lazy(() => import('./componenet/signup/signup'));
@@ -28,6 +30,7 @@ function App() {
         <Route path='/add/investment' element={<><Navbar /><AddInvestment /></>} />
         <Route path='/add/goal' element={<><Navbar /><AddGoal /></>} />
         <Route path='/create/investin' element={<><Navbar /><CreateInvestIn /></>} />
+        <Route path='/create/spendon' element={<><Navbar /><CreateSpendOn /></>} />
         {/* Move PrivateComponent route outside the Route with children */}
       </Route>
 
