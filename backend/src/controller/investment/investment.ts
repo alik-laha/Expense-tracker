@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 //Create a new investment
 export const CreateInvestment = async (req: Request, res: Response) => {
     const { company, capital, goal } = req.body;
-    const userid = req.params.userid;
+    const userid = req.cookies.user;
     const id = uuidv4();
     try {
         const investments = await Investment.create({ id, company, capital, Goal: goal, userid });

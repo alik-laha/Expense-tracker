@@ -31,7 +31,7 @@ router.get("/getearningfrom", verifyToken, getEarningFrom);
 router.delete("/deleteearningfrom/:id", verifyToken, deleteEarningFrom);
 
 //Investment
-router.post("/createinvestment/:userid", verifyToken, CreateInvestment);
+router.post("/createinvestment", verifyToken, CreateInvestment);
 router.get("/getallinvestment", verifyToken, GetInvestments);
 router.put("/updateinvestment/:id", verifyToken, UpdateInvestment);
 router.delete("/deleteinvestment/:id", verifyToken, DeleteInvestment);
