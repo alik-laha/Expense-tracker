@@ -33,6 +33,9 @@ const Navbar = () => {
                     <div className="menu-items">
                         <ul>
                             <li>
+                                <NavLink to="/" onClick={handleclick}>Home</NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/add/earning" onClick={handleclick}>Add Earning</NavLink>
                             </li>
                             <li>
