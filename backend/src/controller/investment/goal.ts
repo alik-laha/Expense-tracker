@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 //Create a new goal
 export const CreateGoal = async (req: Request, res: Response) => {
     const { goal, amount } = req.body;
-    const userid = req.params.userid;
+    const userid = req.cookies.user;
     const id = uuidv4();
     try {
         const goals = await Goal.create({ id, goal, amount, userid });

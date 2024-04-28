@@ -42,7 +42,7 @@ router.get("/getinvestmentin", verifyToken, GetInvestIn);
 router.delete("/deleteinvestmentin/:id", verifyToken, DeleteInvestIn);
 
 //Goal Setting
-router.post("/creategoal/:userid", verifyToken, CreateGoal);
+router.post("/creategoal", verifyToken, CreateGoal);
 router.get("/getallgoal", verifyToken, GetGoals);
 router.delete("/deletegoal/:id", verifyToken, DeleteGoal);
 

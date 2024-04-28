@@ -6,6 +6,7 @@ import { lazy } from 'react';
 import AddEarning from './componenet/addEarning/addEarning';
 import AddSpending from './componenet/addSpending/addSpending';
 import AddInvestment from './componenet/addInvestment/addInvestment';
+import AddGoal from './componenet/addGoal/AddGoal';
 const Navbar = lazy(() => import('./componenet/navbar/navbar'));
 const Login = lazy(() => import('./componenet/login/login'));
 const Signup = lazy(() => import('./componenet/signup/signup'));
@@ -24,6 +25,7 @@ function App() {
         <Route path='/add/earning' element={<><Navbar /><AddEarning /></>} />
         <Route path='/add/spending' element={<><Navbar /><AddSpending /></>} />
         <Route path='/add/investment' element={<><Navbar /><AddInvestment /></>} />
+        <Route path='/add/goal' element={<><Navbar /><AddGoal /></>} />
         {/* Move PrivateComponent route outside the Route with children */}
       </Route>
 
