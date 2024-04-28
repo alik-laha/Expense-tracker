@@ -36,3 +36,11 @@ export interface SpendingChart {
     date: string,
     amount: number
 }
+
+export interface EarningFrom {
+    id: string,
+    source: string,
+    userid: string,
+    createdAt: string,
+    updatedAt: string
+}

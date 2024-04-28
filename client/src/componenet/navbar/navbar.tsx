@@ -26,37 +26,31 @@ const Navbar = () => {
                         <span className="line line2"></span>
                         <span className="line line3"></span>
                     </div>
-                    {/* <div className="menu-items">
-                        <li><NavLink to="/">Home</NavLink></li>
-                        <li><NavLink to="#">About</NavLink></li>
-                        <li><NavLink to="#">Contact</NavLink></li>
-                        {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}
-                    </div> */}
                     <div className="menu-items">
                         <ul>
                             <li>
-                                <NavLink to="/">Earning</NavLink>
+                                <NavLink to="/add/earning">Add Earning</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Spending</NavLink>
+                                <NavLink to="/">Add Spending</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Invest</NavLink>
+                                <NavLink to="/">Add Invest</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Goal</NavLink>
+                                <NavLink to="/">Add Goal</NavLink>
 
                             </li>
                             <li>
-                                <NavLink to="/">Invest In</NavLink>
+                                <NavLink to="/">Create Invest In</NavLink>
 
                             </li>
                             <li>
-                                <NavLink to="/">Spending On</NavLink>
+                                <NavLink to="/">Create Spending On</NavLink>
 
                             </li>
                             <li>
-                                <NavLink to="/">Earning From</NavLink>
+                                <NavLink to="/">Create Earning From</NavLink>
                             </li>
                             {auth ? <li><a onClick={handleLogout}>logout</a></li> : <li><NavLink to="/login">login</NavLink></li>}
                         </ul>

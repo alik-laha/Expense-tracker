@@ -20,14 +20,14 @@ router.delete("/deletespendon/:id", verifyToken, DeleteSpendon);
 router.get("/getallspendon/:userid", verifyToken, GetAllSpendon);
 
 //Earnings
-router.post("/earnings/:userid", verifyToken, CreateEarning);
+router.post("/earnings", verifyToken, CreateEarning);
 router.get("/getallearnings", verifyToken, GetEarnings)
 router.put("/updateearnings/:id", verifyToken, UpdateEarning);
 router.delete("/deleteearnings/:id", verifyToken, DeleteEarning)
 
 //Earning From
 router.post("/createearningfrom/:userid", verifyToken, createEarningFrom);
-router.get("/getearningfrom/:userid", verifyToken, getEarningFrom);
+router.get("/getearningfrom", verifyToken, getEarningFrom);
 router.delete("/deleteearningfrom/:id", verifyToken, deleteEarningFrom);
 
 //Investment

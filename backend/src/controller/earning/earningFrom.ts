@@ -16,10 +16,10 @@ export const createEarningFrom = async (req: Request, res: Response) => {
     }
 };
 
-//get earning from by id
+//get earning from by userid
 export const getEarningFrom = async (req: Request, res: Response) => {
     try {
-        const earningFrom = await EarningFrom.findOne({ where: { userid: req.params.userid } });
+        const earningFrom = await EarningFrom.findAll({ where: { userid: req.cookies.user } });
         if (!earningFrom) return res.status(404).json({ error: 'EarningFrom not found' });
         res.status(200).json({ earningFrom });
     } catch (error) {
