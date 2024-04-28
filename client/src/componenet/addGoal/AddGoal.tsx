@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddGoal = () => {
+    const navigate = useNavigate()
     const [goal, setGoal] = useState("")
     const [amount, setAmount] = useState(0)
 
@@ -11,6 +13,7 @@ const AddGoal = () => {
         axios.post('/api/expense/creategoal', { goal, amount })
             .then((res) => {
                 console.log(res.data)
+                navigate('/')
             })
             .catch((err) => {
                 console.log(err)

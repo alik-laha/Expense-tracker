@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useState, FormEvent, useEffect } from 'react';
 import { EarningFrom } from '../../type/globaleType';
 
@@ -20,12 +21,14 @@ const AddEarning = () => {
     useEffect(() => {
         fetchSource();
     }, [])
-
+    const navigate = useNavigate()
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+
         e.preventDefault();
         axios.post('/api/expense/earnings', { source: sorce, amount })
             .then((res) => {
                 console.log(res.data)
+                navigate('/')
             }
             )
             .catch((err) => {

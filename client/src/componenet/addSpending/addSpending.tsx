@@ -1,8 +1,10 @@
 import { FormEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 import { SpendOn } from '../../type/globaleType';
+import { useNavigate } from 'react-router-dom';
 
 const AddSpending = () => {
+    const navigate = useNavigate();
     const [amount, setAmount] = useState<number>();
     const [spendOn, setSpendOn] = useState<string>('');
 
@@ -13,6 +15,7 @@ const AddSpending = () => {
         axios.post('/api/expense/spending', { amount, spendOn })
             .then((res) => {
                 console.log(res.data)
+                navigate('/')
             }
             )
             .catch((err) => {

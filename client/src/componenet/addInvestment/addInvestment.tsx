@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Goal, InvestIn } from "../../type/globaleType";
+import { useNavigate } from "react-router-dom";
 
 const AddInvestment = () => {
+    const navigate = useNavigate();
     const [companyName, setCompanyName] = useState<string>('');
     const [capital, setCapital] = useState<number>();
     const [goal, setGoal] = useState<string>();
@@ -14,6 +16,7 @@ const AddInvestment = () => {
         axios.post('/api/expense/createinvestment', { company: companyName, capital, goal })
             .then((res) => {
                 console.log(res.data)
+                navigate('/investment')
             }
             )
             .catch((err) => {

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CreateEarnigFrom = () => {
+    const navigate = useNavigate();
     const [source, setSource] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -9,6 +11,7 @@ const CreateEarnigFrom = () => {
         axios.post('/api/expense/createearningfrom', { source: source })
             .then((res) => {
                 console.log(res.data);
+                navigate('/');
             })
             .catch((err) => {
                 console.log(err);

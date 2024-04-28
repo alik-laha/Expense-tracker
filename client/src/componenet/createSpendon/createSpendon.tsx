@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 const CreateSpendon = () => {
+    const navigate = useNavigate()
     const [name, setName] = useState<string>('')
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -9,6 +10,7 @@ const CreateSpendon = () => {
         axios.post('/api/expense/spendon', { name })
             .then((res) => {
                 console.log(res.data)
+                navigate('/')
             })
             .catch((err) => {
                 console.log(err)
