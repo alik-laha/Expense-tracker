@@ -52,3 +52,11 @@ export interface SpendOn {
     createdAt: string,
     updatedAt: string
 }
+
+export interface InvestIn {
+    id: string,
+    company: string,
+    userid: string,
+    createdAt: string,
+    updatedAt: string
+}

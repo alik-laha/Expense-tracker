@@ -37,8 +37,8 @@ router.put("/updateinvestment/:id", verifyToken, UpdateInvestment);
 router.delete("/deleteinvestment/:id", verifyToken, DeleteInvestment);
 
 //Investment In
-router.post("/createinvestmentin/:userid", verifyToken, CreateInvestIn);
-router.get("/getinvestmentin/:userid", verifyToken, GetInvestIn);
+router.post("/createinvestmentin", verifyToken, CreateInvestIn);
+router.get("/getinvestmentin", verifyToken, GetInvestIn);
 router.delete("/deleteinvestmentin/:id", verifyToken, DeleteInvestIn);
 
 //Goal Setting
