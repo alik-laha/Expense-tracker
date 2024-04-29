@@ -23,7 +23,7 @@ const ViewAllEarning = () => {
     console.log(uniqueArray);
 
     return (
-        <div className="grid mt-5 grid-cols-3 ml-5">
+        <div className="grid mt-5 grid-cols-3 ml-24">
             {uniqueArray.map((item) => {
                 return (
                     <Card className="max-w-sm">

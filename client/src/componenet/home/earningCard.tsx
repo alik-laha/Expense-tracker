@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Earnings } from "../../type/globaleType";
 
 const EarningCard = () => {
-    const { setEarningData } = useContext(Context)
-    const [totalEarning, setTotalEarning] = useState<number>(0)
+    const { setEarningData, setTotalEarning } = useContext(Context)
+    const [totalEarning, setTotalEarnings] = useState<number>(0)
     const navigate = useNavigate();
     const fetchData = () => {
         axios.get("/api/expense/getallearnings")
@@ -22,8 +22,11 @@ const EarningCard = () => {
             )
     }
     const calculataEarning = (data: Earnings[]) => {
+        setTotalEarning(0)
+        setTotalEarnings(0)
         data.map((item: Earnings) => {
             setTotalEarning((prev: number) => prev + item.amount)
+            setTotalEarnings((prev: number) => prev + item.amount)
         })
     }
 

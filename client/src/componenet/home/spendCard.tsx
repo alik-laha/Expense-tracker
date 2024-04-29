@@ -8,19 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 const SpendCard = () => {
     const [totalSpend, setTotalSpending] = useState(0)
-    const [totalEarnings, setTotalEarnings] = useState(0)
-
     const navigate = useNavigate()
 
-    const { earningData, setSpendingData, totalInvested, setTotalEarning, setTotalSpend } = useContext(Context)
-    useEffect(() => {
-        earningData.map((data) => {
-            setTotalEarnings((prev) => prev + data.amount)
-            setTotalEarning((prev: number): void => prev + data.amount)
-        })
-    }, [earningData])
+    const { setSpendingData, totalInvested, setTotalSpend, totalEarning } = useContext(Context)
 
     const fetchData = () => {
+        setTotalSpend(0)
+        setSpendingData([])
         axios.get("/api/expense/getallspending")
             .then((res) => {
                 console.log(res.data)
@@ -44,17 +38,16 @@ const SpendCard = () => {
     useEffect(() => {
         fetchData()
     }, [])
-    console.log(totalInvested)
     return (
         <div className="relative mt-5 ml-5 inline-block w-96" onClick={() => navigate("/view/spending/details")}>
             <Card className="max-w-sm">
                 <Text>Spent Amount</Text>
                 <Metric>{totalSpend}rs</Metric>
                 <Flex className="mt-4">
-                    <Text>Spent {((totalSpend / (totalEarnings - totalInvested)) * 100).toFixed(2)}% of earning</Text>
-                    <Text>{totalEarnings - totalInvested}rs</Text>
+                    <Text>Spent {((totalSpend / (totalEarning - totalInvested)) * 100).toFixed(2)}% of earning</Text>
+                    <Text>{totalEarning - totalInvested}rs</Text>
                 </Flex>
-                <ProgressBar value={(totalSpend / (totalEarnings - totalInvested)) * 100} className="mt-2" />
+                <ProgressBar value={(totalSpend / (totalEarning - totalInvested)) * 100} className="mt-2" />
             </Card>
         </div>
     )

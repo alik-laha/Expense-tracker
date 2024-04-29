@@ -6,7 +6,6 @@ import Context from "../context/context";
 import { useNavigate } from "react-router-dom";
 
 
-
 const InvestMentGoalCard = () => {
     const navigate = useNavigate()
     const [goal, setGoal] = useState(0)
@@ -14,6 +13,10 @@ const InvestMentGoalCard = () => {
     const { setTotalInvested, setInvestedData } = useContext(Context)
 
     const fetchData = () => {
+        setGoal(0)
+        setInvested(0)
+        setTotalInvested(0)
+        setInvestedData([])
         axios.get("/api/expense/getallgoal")
             .then((res): void => {
                 countGoal(res.data.goals)
