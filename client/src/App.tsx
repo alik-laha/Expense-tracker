@@ -2,7 +2,6 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import { PrivateComponent } from './componenet/private/private';
 import { lazy } from 'react';
-
 import AddEarning from './componenet/addEarning/addEarning';
 import AddSpending from './componenet/addSpending/addSpending';
 import AddInvestment from './componenet/addInvestment/addInvestment';
