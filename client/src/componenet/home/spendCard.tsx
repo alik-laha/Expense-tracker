@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 
 const SpendCard = () => {
-    const [totalSpend, setTotalSpend] = useState(0)
+    const [totalSpend, setTotalSpending] = useState(0)
     const [totalEarnings, setTotalEarnings] = useState(0)
 
     const navigate = useNavigate()
 
-    const { earningData, setSpendingData, totalInvested, setTotalEarning } = useContext(Context)
+    const { earningData, setSpendingData, totalInvested, setTotalEarning, setTotalSpend } = useContext(Context)
     useEffect(() => {
         earningData.map((data) => {
             setTotalEarnings((prev) => prev + data.amount)
@@ -35,6 +35,7 @@ const SpendCard = () => {
     const chartData: Array<SpendingChart> = []
     const countSpend = (data: Array<Spendings>) => {
         data.map((item: Spendings): void => {
+            setTotalSpending((prev) => prev + item.amount)
             setTotalSpend((prev) => prev + item.amount)
         })
         console.log(chartData)

@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import Context from "../context/context";
+import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
+
 
 const ViewAllInvestment = () => {
-    const { investedData } = useContext(Context);
+    const { investedData, totalInvested } = useContext(Context);
     const uniqueValues = {};
 
     investedData.forEach(obj => {
@@ -21,8 +23,20 @@ const ViewAllInvestment = () => {
     console.log(uniqueArray);
 
     return (
-        <div>
-            <h1>View All Investment</h1>
+        <div className="grid mt-5 grid-cols-3 ml-5">
+            {uniqueArray.map((item) => {
+                return (
+                    <Card className="max-w-sm">
+                        <Text>Spent Amount on {item.company}</Text>
+                        <Metric>{item.amount}rs</Metric>
+                        <Flex className="mt-4">
+                            <Text>Spent {((item.amount / totalInvested) * 100).toFixed(2)} % of Total Spend</Text>
+                            <Text>{totalInvested} rs</Text>
+                        </Flex>
+                        <ProgressBar value={(item.amount / totalInvested) * 100} className="mt-2" />
+                    </Card>)
+            })}
+
         </div>
     )
 }

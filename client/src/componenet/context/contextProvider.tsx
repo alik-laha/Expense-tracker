@@ -11,8 +11,9 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
     const [investedData, setInvestedData] = useState<Investment[]>([])
     const [totalInvested, setTotalInvested] = useState<number>(0)
     const [totalEarning, setTotalEarning] = useState<number>(0)
+    const [totalSpend, setTotalSpend] = useState<number>(0)
     return (
-        <Context.Provider value={{ earningData, setEarningData, spendingData, setSpendingData, setTotalInvested, totalInvested, totalEarning, setTotalEarning, investedData, setInvestedData }}>
+        <Context.Provider value={{ earningData, setEarningData, spendingData, setSpendingData, setTotalInvested, totalInvested, totalEarning, setTotalEarning, investedData, setInvestedData, totalSpend, setTotalSpend }}>
             {children}
         </Context.Provider>
     )
