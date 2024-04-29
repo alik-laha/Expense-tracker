@@ -8,9 +8,9 @@ import InvestedChart from "./investmentChart";
 function home() {
 
     return (
-        <>
+        <div className="ml-40">
 
-            <div className="flex ">
+            <div className="flex">
                 <InvestMentGoalCard />
                 <SpendCard />
                 <EarningCard />
@@ -21,7 +21,7 @@ function home() {
             <span className="w-10/12 block relative mt-5 left-32">
                 <InvestedChart />
             </span>
-        </>
+        </div>
     )
 }
 
