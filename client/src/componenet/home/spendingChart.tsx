@@ -6,10 +6,11 @@ const dataFormatter = (number: number) =>
     `${Intl.NumberFormat('en-IN', { currency: 'INR' }).format(number).toString()}`;
 
 export default function EarningSpendingChart() {
+
     const { spendingData } = useContext(Context);
 
     return (
-        <Card>
+        <Card >
             <Title>Amount spending Over the year
 
             </Title>
