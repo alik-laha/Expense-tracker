@@ -50,32 +50,32 @@ const AddInvestment = () => {
 
 
     return (
-        <div className="container">
-            <h1>Add Investment</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="companyName">Company Name</label>
-                    <select name="source" id="source" value={companyName} onChange={(e) => setCompanyName(e.target.value)}>
+        <div className="container mx-auto px-4">
+            <h1 className="text-2xl font-bold mb-4">Add Investment</h1>
+            <form onSubmit={handleSubmit} className="flex justify-center flex-col">
+                <div className="mb-4">
+                    <label htmlFor="companyName" className="block text-sm font-semibold mb-1">Company Name</label>
+                    <select name="source" id="source" value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500">
                         <option value="">Select Source</option>
                         {CompanyData.map((earning: InvestIn) => (
                             <option key={earning.id} value={earning.company}>{earning.company}</option>
                         ))}
                     </select>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="capital">Capital</label>
-                    <input type="number" id="capital" value={capital} onChange={(e) => setCapital(Number(e.target.value))} />
+                <div className="mb-4">
+                    <label htmlFor="capital" className="block text-sm font-semibold mb-1">Capital</label>
+                    <input type="number" id="capital" value={capital} onChange={(e) => setCapital(Number(e.target.value))} className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500" />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="goal">Goal</label>
-                    <select name="source" id="source" value={goal} onChange={(e) => setGoal(e.target.value)}>
+                <div className="mb-4">
+                    <label htmlFor="goal" className="block text-sm font-semibold mb-1">Goal</label>
+                    <select name="source" id="source" value={goal} onChange={(e) => setGoal(e.target.value)} className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500">
                         <option value="">Select Source</option>
                         {goalData.map((earning: Goal) => (
                             <option key={earning.id} value={earning.goal}>{earning.goal}</option>
                         ))}
                     </select>
                 </div>
-                <button type="submit">Add Investment</button>
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Add Investment</button>
             </form>
         </div>
     )

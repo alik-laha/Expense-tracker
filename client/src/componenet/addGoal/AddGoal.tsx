@@ -20,11 +20,24 @@ const AddGoal = () => {
             })
     }
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="container mx-auto px-4 mt-10">
+            <h1 className="text-2xl font-bold">Create Goal</h1>
             <form onSubmit={handleSubmit} className="flex flex-col">
-                <input type="text" placeholder="Goal" onChange={(e) => setGoal(e.target.value)} value={goal} />
-                <input type="number" placeholder="Amount" onChange={(e) => setAmount(parseInt(e.target.value))} value={amount} />
-                <button type="submit">Submit</button>
+                <input
+                    type="text"
+                    placeholder="Goal"
+                    onChange={(e) => setGoal(e.target.value)}
+                    value={goal}
+                    className="w-full px-4 py-2 mb-4 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                />
+                <input
+                    type="number"
+                    placeholder="Amount"
+                    onChange={(e) => setAmount(parseInt(e.target.value))}
+                    value={amount}
+                    className="w-full px-4 py-2 mb-4 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                />
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Submit</button>
             </form>
         </div>
     )

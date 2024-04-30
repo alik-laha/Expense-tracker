@@ -18,10 +18,19 @@ const CreateEarnigFrom = () => {
             });
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="source" onChange={(e) => setSource(e.target.value)} value={source} />
-            <button type="submit">Submit</button>
-        </form>
+        <div className="container mx-auto px-4">
+            <h1 className="text-2xl font-bold">Create Earning From</h1>
+            <form onSubmit={handleSubmit} className="flex">
+                <input
+                    type="text"
+                    placeholder="source"
+                    onChange={(e) => setSource(e.target.value)}
+                    value={source}
+                    className="w-full px-4 py-2 mb-4 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                />
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Submit</button>
+            </form>
+        </div>
     );
 
 }
