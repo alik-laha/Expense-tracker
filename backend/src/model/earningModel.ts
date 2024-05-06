@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/databaseConfig.js";
-import User from "./userModel.js";
-import EarningFrom from "./earningFromModel.js";
+import sequelize from "../config/databaseConfig";
+import User from "./userModel";
+import EarningFrom from "./earningFromModel";
 
 const Earning = sequelize.define('Earning', {
     id: {

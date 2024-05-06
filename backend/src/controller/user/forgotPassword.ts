@@ -1,7 +1,7 @@
-import User from "../../model/userModel.js";
+import User from "../../model/userModel";
 import { Request, Response } from "express";
 import crypto from "crypto";
-import { ResetPassword } from "../../helper/mailer.js";
+import { ResetPassword } from "../../helper/mailer";
 
 const forgotPassword = async (req: Request, res: Response) => {
     try {

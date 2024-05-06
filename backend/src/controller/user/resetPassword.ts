@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import User from "../../model/userModel.js";
+import User from "../../model/userModel";
 import { Request, Response } from "express";
 
 const ResetPassword = async (req: Request, res: Response) => {

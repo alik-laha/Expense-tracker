@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/databaseConfig.js";
-import User from "./userModel.js";
-import SPEND from "./spendonModel.js";
+import sequelize from "../config/databaseConfig";
+import User from "./userModel";
+import SPEND from "./spendonModel";
 
 
 const Spending = sequelize.define('Spending', {

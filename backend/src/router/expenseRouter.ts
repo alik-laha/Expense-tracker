@@ -1,13 +1,13 @@
 import express from "express";
 const router = express.Router();
-import { CreateSpending, GetSpending, UpdateSpending, DeleteSpending } from "../controller/spending/Spending.js";
-import { createSpendon, DeleteSpendon, GetAllSpendon } from "../controller/spending/spendon.js";
-import { CreateEarning, DeleteEarning, GetEarnings, UpdateEarning } from "../controller/earning/earning.js";
-import { createEarningFrom, deleteEarningFrom, getEarningFrom } from "../controller/earning/earningFrom.js";
-import { CreateInvestment, GetInvestments, UpdateInvestment, DeleteInvestment } from "../controller/investment/investment.js";
-import { CreateInvestIn, GetInvestIn, DeleteInvestIn } from "../controller/investment/investmentIn.js";
-import { CreateGoal, DeleteGoal, GetGoals } from "../controller/investment/goal.js";
-import { verifyToken } from "../middleware/verification.js";
+import { CreateSpending, GetSpending, UpdateSpending, DeleteSpending } from "../controller/spending/Spending";
+import { createSpendon, DeleteSpendon, GetAllSpendon } from "../controller/spending/spendon";
+import { CreateEarning, DeleteEarning, GetEarnings, UpdateEarning } from "../controller/earning/earning";
+import { createEarningFrom, deleteEarningFrom, getEarningFrom } from "../controller/earning/earningFrom";
+import { CreateInvestment, GetInvestments, UpdateInvestment, DeleteInvestment } from "../controller/investment/investment";
+import { CreateInvestIn, GetInvestIn, DeleteInvestIn } from "../controller/investment/investmentIn";
+import { CreateGoal, DeleteGoal, GetGoals } from "../controller/investment/goal";
+import { verifyToken } from "../middleware/verification";
 //Spendings
 router.post("/spending", verifyToken, CreateSpending);
 router.get("/getallspending", verifyToken, GetSpending)

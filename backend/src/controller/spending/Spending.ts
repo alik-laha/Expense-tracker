@@ -1,4 +1,4 @@
-import Spending from "../../model/spendingModel.js";
+import Spending from "../../model/spendingModel";
 import { Request, Response } from "express";
 import { v4 as uuidv4 } from "uuid";
 
