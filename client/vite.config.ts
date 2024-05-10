@@ -27,11 +27,9 @@ dotenv.config();
 export default defineConfig({
   server: {
     proxy: {
-      // Proxy /api requests to http://localhost:8000
       '/api': {
         target: process.env.API_URL,
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/api')
+        changeOrigin: true
       },
       // Proxy /images requests to another server
       '/images': {
