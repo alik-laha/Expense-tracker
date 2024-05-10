@@ -1,10 +1,9 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import dotenv from "dotenv"
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config(); // Load environment variables from .env file
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -13,10 +12,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.API_URL, // Specify the URL of the server you want to proxy to
+        target: process.env.API_URL, // Proxy target URL from environment variable
         changeOrigin: true,
-        // rewrite: (path) => path.replace(/^\/api/, '') // Remove '/api' prefix from the request path
-      }
-    }
-  }
-})
+        // Optionally, you can use rewrite to remove the '/api' prefix from the request path
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      },
+    },
+  },
+});
