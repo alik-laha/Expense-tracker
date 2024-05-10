@@ -5,11 +5,11 @@ import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
 const ViewAllSpending = () => {
     const { spendingData, totalSpend } = useContext(Context);
 
-    const uniqueValues = {};
+    const uniqueValues: { [key: string]: number } = {};
 
     spendingData.forEach(obj => {
         // Check if the value already exists in uniqueValues
-        if (uniqueValues.hasOwnProperty(obj.spendOn)) {
+        if (obj.spendOn in uniqueValues) {
             // If it exists, add the amount to the existing amount
             uniqueValues[obj.spendOn] += obj.amount;
         } else {
