@@ -30,11 +30,6 @@ export default defineConfig({
       '/api': {
         target: process.env.API_URL,
         changeOrigin: true
-      },
-      // Proxy /images requests to another server
-      '/images': {
-        target: 'http://another-server.com',
-        changeOrigin: true
       }
     }
   }
