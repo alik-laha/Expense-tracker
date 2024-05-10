@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./navbar.css";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -16,10 +16,10 @@ const Navbar = () => {
                 console.log(err)
             })
     }
-    const handleclick = () => {
-        const checkbox = document.querySelector('.checkbox') as HTMLInputElement
-        checkbox.checked = false
-    }
+    // const handleclick = () => {
+    //     const checkbox = document.querySelector('.checkbox') as HTMLInputElement
+    //     checkbox.checked = false
+    // }
     return (
         <nav id="navbar" className="z-30">
             <ul className="navbar-items flexbox-col">
