@@ -30,7 +30,7 @@ const SpendCard = () => {
     const countSpend = (data: Array<Spendings>) => {
         data.map((item: Spendings): void => {
             setTotalSpending((prev) => prev + item.amount)
-            setTotalSpend((prev) => prev + item.amount)
+            setTotalSpend(totalSpend)
         })
         console.log(chartData)
     }

@@ -25,7 +25,6 @@ const EarningCard = () => {
         setTotalEarning(0)
         setTotalEarnings(0)
         data.map((item: Earnings) => {
-            setTotalEarning((prev: number) => prev + item.amount)
             setTotalEarnings((prev: number) => prev + item.amount)
         })
     }

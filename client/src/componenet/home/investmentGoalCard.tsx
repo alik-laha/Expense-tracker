@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const InvestMentGoalCard = () => {
     const navigate = useNavigate()
-    const [goal, setGoal] = useState(0)
-    const [invested, setInvested] = useState(0)
+    const [goal, setGoal] = useState<number>(0);
+    const [invested, setInvested] = useState<number>(0);
     const { setTotalInvested, setInvestedData } = useContext(Context)
 
     const fetchData = () => {
@@ -39,8 +39,7 @@ const InvestMentGoalCard = () => {
     const countInvest = (data: Array<Investment>) => {
         data.map((item): void => {
             setInvested((prev) => prev + item.capital)
-
-            setTotalInvested((prev: number): void => prev + item.capital)
+            setTotalInvested(invested)
         })
     }
 
