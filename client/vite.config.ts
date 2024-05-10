@@ -21,14 +21,11 @@
 
 import { defineConfig } from 'vite';
 
-import dotenv from 'dotenv';
-
-dotenv.config();
 export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.API_URL,
+        target: "https://expense-tracker-46x2.onrender.com/",
         changeOrigin: true
       }
     }
