@@ -6,23 +6,24 @@ import { Navigate, Outlet, useNavigate } from "react-router-dom";
 
 export const PrivateComponent = () => {
     const navigate = useNavigate()
-    const verify = () => {
-        axios.get('/api/user/verify')
-            .then((res) => {
-                console.log(res.data)
-                localStorage.setItem('loggedIn', 'true')
-                navigate('/')
-            })
-            .catch((err) => {
-                console.log(err)
-                localStorage.clear()
-                navigate('/login')
-            })
-    }
 
     useEffect(() => {
+        const verify = () => {
+            axios.get('/api/user/verify')
+                .then((res) => {
+                    console.log(res.data)
+                    localStorage.setItem('loggedIn', 'true')
+                    navigate('/')
+                })
+                .catch((err) => {
+                    console.log(err)
+                    localStorage.clear()
+                    navigate('/login')
+                })
+        }
+
         verify()
-    }, [])
+    }, [navigate])
 
     const auth = localStorage.getItem('loggedIn')
 
