@@ -3,11 +3,11 @@
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "https://expense-tracker-46x2.onrender.com/"
+            "dest": "https://expense-tracker-navy-iota.vercel.app/"
         },
         {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "/index.html"
         }
     ]
 }
