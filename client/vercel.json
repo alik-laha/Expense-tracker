@@ -1,8 +1,22 @@
 {
-    "rewrites": [
+    "version": 2,
+    "builds": [
         {
-            "source": "/(.*)",
-            "destination": "/"
+            "src": "vite.config.js",
+            "use": "@vercel/static-build"
         }
-    ]
+    ],
+    "routes": [
+        {
+            "src": "/api/.*",
+            "dest": "/api/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    }
 }
