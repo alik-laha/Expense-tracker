@@ -6,7 +6,7 @@ export default defineConfig({
       '/api': {
         target: "https://expense-tracker-46x2.onrender.com", // Your backend server URL
         changeOrigin: true,
-        secure: false
+        secure: true
       }
     }
   }
