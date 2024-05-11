@@ -20,7 +20,7 @@ const Signup = () => {
         if (auth) {
             Navigater('/')
         }
-    })
+    }, [])
 
     const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();

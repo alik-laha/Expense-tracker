@@ -23,7 +23,7 @@ export const PrivateComponent = () => {
         }
 
         verify()
-    }, [navigate])
+    }, [])
 
     const auth = localStorage.getItem('loggedIn')
 
