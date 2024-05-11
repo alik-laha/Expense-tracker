@@ -2,11 +2,10 @@
 [[redirects]]
   from = "/api/*"
   force = true
-  to = "https://expense-tracker-46x2.onrender.com/"
+  to = "https://expense-tracker-46x2.onrender.com/api"
   status = 200
 
 [[redirects]]
   from = "/*"
   to = "/"
   status = 200
-  
