@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/databaseConfig";
-import User from "./userModel";
-import Goal from "./goalModel";
-import InvestIn from "./investInModel";
+import sequelize from "../config/databaseConfig.js";
+import User from "./userModel.js";
+import Goal from "./goalModel.js";
+import InvestIn from "./investInModel.js";
 
 const Investment = sequelize.define('Investment', {
     id: {

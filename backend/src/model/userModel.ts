@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/databaseConfig";
+import sequelize from "../config/databaseConfig.js";
 
 sequelize.sync()
     .then(() => {

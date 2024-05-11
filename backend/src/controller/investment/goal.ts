@@ -1,4 +1,4 @@
-import Goal from "../../model/goalModel";
+import Goal from "../../model/goalModel.js";
 import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 

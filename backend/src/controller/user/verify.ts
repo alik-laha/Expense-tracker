@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response } from "express";
-import User from "../../model/userModel"; // Assuming you have a UserDocument type/interface
+import User from "../../model/userModel.js"; // Assuming you have a UserDocument type/interface
 
 const Verify = async (req: Request, res: Response) => {
     try {

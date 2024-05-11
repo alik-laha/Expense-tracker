@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/databaseConfig";
-import User from "./userModel";
+import sequelize from "../config/databaseConfig.js";
+import User from "./userModel.js";
 
 const Goal = sequelize.define('Goal', {
     id: {

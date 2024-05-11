@@ -1,9 +1,9 @@
 import express from "express";
 const app = express();
 import cors from "cors";
-import userRouter from "./router/userRouter";
+import userRouter from "./router/userRouter.js";
 import cookiePerser from "cookie-parser";
-import expenseRouter from "./router/expenseRouter";
+import expenseRouter from "./router/expenseRouter.js";
 
 app.use(cors());
 app.use(cookiePerser());

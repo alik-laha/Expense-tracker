@@ -1,8 +1,8 @@
-import User from "../../model/userModel";
+import User from "../../model/userModel.js";
 import bcrypt from "bcryptjs";
 import { Request, Response } from "express";
 import crypto from "crypto";
-import { VerifyEmail } from "../../helper/mailer";
+import { VerifyEmail } from "../../helper/mailer.js";
 import jwt from "jsonwebtoken";
 
 const Signup = async (req: Request, res: Response) => {
