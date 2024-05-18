@@ -13,7 +13,7 @@ import ResetPasswordController from "../controller/user/resetPassword.js";
 
 router.post("/signup", CheckUser, Signup);
 
-router.post("/", (req, res) => res.send("User Router"))
+router.get("/", (req, res) => res.send("User Router"))
 
 router.put("/login", Login)
 
